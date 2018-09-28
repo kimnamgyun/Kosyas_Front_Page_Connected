@@ -1,0 +1,130 @@
+<!-- title //-->
+<div class="title_wrap">
+  <app-breadcrumb></app-breadcrumb>
+</div>
+<!--// title -->
+
+<!-- contents-wrap //-->
+<div class="contents-wrap">
+  <div  class="contents-box">
+
+    <app-default isCorrelation="no"
+                 [title]="this.title"
+                 [editFormComplete]="this.editFormComplete"
+                 [onKeyUpRuleName]="this.onKeyUpRuleName"
+                 (changeMode)="onChangeMode($event)"></app-default>
+
+    <div *ngIf="mode === 'modify'" class="col-2">
+      <!--사용자 알람-->
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'사용자 알람' | localize}}</h2>
+        <div class="contents-area">
+          <!-- list table //-->
+          <div class="list_table">
+            <table>
+              <colgroup>
+                <col  />
+                <col  />
+                <col  />
+                <col  />
+                <col  />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>{{'아이디' | localize}}</th>
+                  <th>{{'권한' | localize}}</th>
+                  <th>{{'상태' | localize}}</th>
+                  <th>{{'이메일 알림' | localize}}</th>
+                  <th>{{'화면 알람' | localize}}</th>
+                  <th>{{'제외' | localize}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of ownerItems">
+                  <!--아이디-->
+                  <td class="alignL">{{item.id}}</td>
+                  <!--권한-->
+                  <td *ngIf="item.lvl < 5">{{'일반' | localize}}</td>
+                  <td *ngIf="item.lvl >= 5">{{'관리자' | localize}}</td>
+                  <!--상태-->
+                  <td *ngIf="item.status === '2'"><span class="state type1">{{'정상' | localize}}</span></td>
+                  <td *ngIf="item.status === '3'"><span class="state type2">{{'거부' | localize}}</span></td>
+                  <td *ngIf="item.status === '4'"><span class="state type3">{{'탈퇴' | localize}}</span></td>
+                  <td *ngIf="item.status === '5'"><span class="state type4">{{'잠금' | localize}}</span></td>
+                  <!--이메일 알림-->
+                  <td><input type="checkbox" [(ngModel)]="item.email" /></td>
+                  <!--화면 알림-->
+                  <td><input type="checkbox" [(ngModel)]="item.web" /></td>
+                  <!--제외-->
+                  <td><a class="btn-type4" (click)="onRemoveUser(item)">{{'제외' | localize}}</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--// list table -->
+        </div>
+        <!-- Btn //-->
+        <div class="btn-wrap">
+          <a class="btn-type2" (click)="onSave()"><span class="btn-ico ico-check02">icon</span>{{'저장' | localize}}</a>
+        </div>
+        <!--// Btn -->
+      </div>
+      <!--사용자 알람-->
+      <!--사용자 리스트-->
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'사용자 리스트' | localize}}</h2>
+        <div class="contents-area">
+          <!-- Search Box //-->
+          <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+            <div class="searchbox">
+              <p class="searchbox-item wdP50">
+                <label class="searchbox-label">{{'아이디 검색' | localize}}</label>
+                <input formControlName="id" type="text" class="searchbox-input" placeholder="{{'아이디 검색' | localize}}" value="" />
+              </p>
+              <a class="btn-type2 MAL10" (click)="onSearch()"><span class="btn-ico ico-search01">icon</span>{{'검색' | localize}}</a>
+            </div>
+          </form>
+          <!--// Search Box -->
+          <!-- list table //-->
+          <div class="list_table">
+            <table>
+              <colgroup>
+                <col style="width: 50px"/>
+                <col style="width: auto"/>
+                <col style="width: 150px"/>
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>{{'추가' | localize}}</th>
+                  <th>{{'아이디' | localize}}</th>
+                  <th>{{'권한' | localize}}</th>
+                </tr>
+              </thead>
+            </table>
+            <div class="scrollable">
+              <table>
+                <colgroup>
+                  <col style="width: 50px"/>
+                  <col style="width: auto"/>
+                  <col style="width: 150px"/>
+                </colgroup>
+                <tbody>
+                <tr *ngFor="let item of userItems">
+                  <td><a (click)="onAddUser(item)"><img src="/assets/images/btn_add01.png" alt="{{'추가' | localize}}" /></a></td>
+                  <td class="alignL">{{item.id}}</td>
+                  <td *ngIf="item.lvl < 5">{{'일반' | localize}}</td>
+                  <td *ngIf="item.lvl >= 5">{{'관리자' | localize}}</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!--// list table -->
+        </div>
+      </div>
+      <!--사용자 리스트-->
+    </div>
+
+  </div>
+</div>
+<!--// contents-wrap -->

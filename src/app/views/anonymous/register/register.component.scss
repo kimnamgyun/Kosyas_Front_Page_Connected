@@ -1,0 +1,19 @@
+$images: '../../../../assets/images';
+$current_images: $images + '/anonymous/register';
+
+/* terms */
+.register_terms-wrap.all_agree {border:1px solid #ccc; position:relative; font-size:18px; color:#333; line-height:24px; -webkit-box-sizing: border-box; box-sizing: border-box; padding:15px 60px 15px 15px;}
+.register_terms-checkbox {position:absolute; top:50%; right:15px; margin-top:-12px; width:24px; height:24px; line-height:0; font-size:0;}
+
+.register_terms-title {margin-top:24px; position:relative; padding-right:60px;}
+.register_terms-title_h3 {font-size:18px; font-weight:400; color:#333; line-height:24px;}
+.register_terms-title_check {font-size:14px; vertical-align:top; color:#f7bd16;}
+.register_terms-title .register_terms-checkbox {right:0;}
+.register_terms-wrap.scroll_box {border:1px solid #ccc; padding:15px; -webkit-box-sizing: border-box; box-sizing: border-box; margin-top:10px; height:125px; overflow-y:auto; font-size:13px; line-height:20px; background:#f9f9f9; color:#767676; font-weight:300;}
+
+/*checkbox*/
+.checkbox-label {position:relative; display:inline-block; cursor:pointer; vertical-laign:middle;}
+.checkbox-obj {position:absolute; top:0px; left:0px; z-index:1; width:24px; height:24px; vertical-align:middle; margin:0; padding:0;}
+.checkbox-label:before {content:''; display:inline-block; background:#fff url($current_images + '/ico_check01.png') 0 0 no-repeat; position:absolute; width:24px; height:24px; z-index:2; top:0; left:0;}
+.checkbox-label.checkbox-on:before {background-position: 0 -24px; }
+

@@ -1,0 +1,234 @@
+<!-- title //-->
+<div class="title_wrap">
+  <app-breadcrumb></app-breadcrumb>
+</div>
+<!--// title -->
+
+
+<!-- contents-wrap //-->
+<div class="contents-wrap">
+
+
+
+  <div class="contents-box">
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'사용자' | localize}}</h2>
+        <div class="contents-area">
+          <form [formGroup]="userHForm" (submit)="onSearch()">
+            <!-- Search Box //-->
+            <div class="searchbox">
+              <p class="searchbox-item wd100">
+                <span class="search_select-box">
+                  <label>{{userHGroup['status'].value | label: statusNames}}</label>
+                  <select class="search_select" formControlName="status">
+                      <option *ngFor="let name of statusNames" [value]="name.value">{{name.label}}</option>
+                  </select>
+                </span>
+              </p>
+              <p class="searchbox-item wdP50">
+                <label for="search-text" class="searchbox-label">{{'아이디 검색' | localize}}</label>
+                <input type="text" class="searchbox-input" formControlName="id" id="search-text" placeholder="{{'아이디 검색' | localize}}" />
+              </p>
+              <a class="btn-type2 MAL10" (click)="onSearch()"><span class="btn-ico ico-search01">icon</span>{{'검색' | localize}}</a>
+            </div>
+          </form>
+
+          <!--// Search Box -->
+
+          <!-- list table //-->
+          <div class="list_table">
+            <table>
+              <colgroup>
+                <col  />
+                <col style="width: 90px" />
+                <col style="width: 79px" />
+                <col style="width: 111px" />
+                <col style="width: 79px" />
+              </colgroup>
+              <thead>
+              <tr>
+                <th>{{'아이디' | localize}}</th>
+                <th>{{'가입일' | localize}}</th>
+                <th>{{'권한' | localize}}</th>
+                <th>{{'상태' | localize}}</th>
+                <th>{{'삭제' | localize}}</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let user of users; let i = index">
+                <td class="alignL"><a (click)="onGetUser(user.seq)">{{user.id}}</a></td>
+                <td>{{user.reg_date | date: 'yyyy-MM-dd'}}</td>
+                <td>
+                  <span *ngIf="user.lvl === 5">{{'관리자' | localize}}</span>
+                  <span *ngIf="user.lvl === 1">{{'일반' | localize}}</span>
+                  <span *ngIf="user.lvl === 9">{{'다국어' | localize}}</span>
+                </td>
+                <td>
+                      <span class="default_select-box">
+                          <label for="select-state">{{user.status | label: statusNames}}</label>
+                          <select class="default_select" id="select-state" (change)="onChangeStatus(user.seq, user.status)" [(ngModel)]="user.status">
+                              <option *ngFor="let name of smallStatusNames;" value="{{name.value}}">{{name.label}}</option>
+                          </select>
+                      </span>
+                </td>
+                <td><a class="btn-type4" [class.disable]="user.lvl === 5" (click)="onDeleteUser(user)">{{'삭제' | localize}}</a></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--// list table -->
+
+          <!-- pagination //-->
+          <app-pagination [page]="page" [pageSize]="pageSize" [rowsSize]="rowsSize" [totalRows]="totalRows"
+                          (changePage)="paginationHandler($event)"></app-pagination>
+          <!--// pagination -->
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 *ngIf="mode === 'register'" class="title-h2">{{'사용자 등록' | localize}}</h2>
+        <h2 *ngIf="mode === 'modify'" class="title-h2">{{'사용자 정보 변경' | localize}}</h2>
+        <div class="contents-area">
+
+          <!-- write table //-->
+          <form [formGroup]="userRForm">
+            <div class="write_table">
+              <table>
+                <colgroup>
+                  <col width="100px" />
+                  <col  />
+                </colgroup>
+                <tbody>
+                <tr>
+                  <th><label class="write_form-label">{{'아이디' | localize}}</label></th>
+                  <td class="write_form-item" [class.check_item]="mode === 'register'">
+                    <input type="text" class="write_form-input" formControlName="id"
+                           maxlength="40"
+                           placeholder="{{'아이디(7~40자의 E-mail)' | localize}}"
+                           [readonly]="this.mode === 'modify'" />
+                    <a *ngIf="mode === 'register'" class="btn-type3"  (click)="onCheckDuplication(userRGroup['id'].value)"><span class="btn-ico ico-check01">icon</span>{{'중복확인' | localize}}</a>
+                    <span *ngIf="submitted && userRGroup['id'].errors">
+                      <span class="userRForm colorRed" *ngIf="userRGroup['id'].errors?.required">{{'아이디를 입력하세요.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="userRGroup['id'].errors?.minlength">{{'아이디는 8자 이상 입니다.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="!userRGroup['id'].errors?.minlength &&
+                       userRGroup['id'].errors?.email">{{'아이디는 이메일 형식 입니다.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="!userRGroup['id'].errors?.required && !userRGroup['id'].errors?.minlength &&
+                      !userRGroup['id'].errors?.email && userRGroup['id'].errors?.match">{{'아이디 중복확인이 필요합니다.' | localize}}</span>
+                    </span>
+                    <span class="userRForm colorGreen" *ngIf="mode === 'register' && !userRGroup['id'].errors && userRGroup['id_correct'].value === userRGroup['id'].value">{{'사용 가능한 아이디 입니다.' | localize}}</span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'비밀번호' | localize}}</label></th>
+                  <td class="write_form-item check_item">
+                    <input type="password" class="write_form-input" formControlName="pw"
+                           maxlength="50"
+                           placeholder="{{'비밀번호(9~50자, 특수, 영대, 숫자 1개 포함)' | localize}}"  />
+                    <a *ngIf="mode === 'modify'" class="btn-type2 change-pw" (click)="onChangePassword()"><span class="btn-ico ico-check02">icon</span>{{'변경' | localize}}</a>
+                    <span *ngIf="((mode === 'register' && submitted) || (mode === 'modify' && submittedPassword)) && userRGroup['pw'].errors">
+                      <span class="userRForm colorRed" *ngIf="userRGroup['pw'].errors?.required">{{'비밀번호를 입력하세요.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="userRGroup['pw'].errors?.minlength">{{'비밀번호는 9자 이상 입니다.' | localize}}</span>
+                      <span class="userRForm colorRed"
+                            *ngIf="!userRGroup['pw'].errors?.required && !userRGroup['pw'].errors?.minlength &&
+                            userRGroup['pw'].errors?.pattern">{{'비밀번호는 하나 이상의 대소문자, 숫자, 특수문자를 포함하여야 합니다.' | localize}}</span>
+                    </span>
+                    <span *ngIf="mode === 'register'" class="write_form-ico type1 on"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'비밀번호 재확인' | localize}}</label></th>
+                  <td class="write_form-item check_item">
+                    <input type="password" class="write_form-input" formControlName="pw_t"
+                           maxlength="50"
+                           placeholder="{{'비밀번호 재확인' | localize}}"  />
+                    <span *ngIf="(mode === 'register' && submitted) || (mode === 'modify' && submittedPassword)">
+                      <span class="userRForm colorRed" *ngIf="userRGroup['pw_t'].errors?.required">{{'비밀번호 확인을 입력하세요.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="!userRGroup['pw_t'].errors?.required &&
+                        userRGroup['pw_t'].errors?.match">{{'비밀번호와 비밀번호 확인이 일치하지 않습니다.' | localize}}</span>
+                    </span>
+                    <span *ngIf="mode === 'register'" class="write_form-ico type2 on"></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'이름' | localize}}</label></th>
+                  <td class="write_form-item">
+                    <input type="text" class="write_form-input" formControlName="nm"
+                           maxlength="50"
+                           placeholder="{{'이름(2~50자)' | localize}}"/>
+                    <span *ngIf="submitted">
+                      <span class="userRForm colorRed" *ngIf="userRGroup['nm'].errors?.required">{{'이름을 입력하세요.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="userRGroup['nm'].errors?.minlength">{{'이름은 2자 이상 입니다.' | localize}}</span>
+                    </span>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'휴대폰' | localize}}</label></th>
+                  <td class="write_form-item">
+                    <input type="text" class="write_form-input" formControlName="phone"
+                           maxlength="30"
+                           placeholder="{{'휴대폰번호(10~30자)' | localize}}"  appPhoneOnly />
+                    <span *ngIf="submitted">
+                      <span class="userRForm colorRed" *ngIf="userRGroup['phone'].errors?.required">{{'휴대폰번호를 입력하세요.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="userRGroup['phone'].errors?.minlength">{{'휴대폰번호는 10자 이상 입니다.' | localize}}</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'회사' | localize}}</label></th>
+                  <td class="write_form-item">
+                    <input type="text" class="write_form-input" formControlName="comp_nm"
+                           maxlength="50"
+                           placeholder="{{'회사(2~50자)' | localize}}"  />
+                    <span *ngIf="submitted">
+                      <span class="userRForm colorRed" *ngIf="userRGroup['comp_nm'].errors?.required">{{'회사를 입력하세요.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="userRGroup['comp_nm'].errors?.minlength">{{'회사는 2자 이상 입니다.' | localize}}</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'국가' | localize}}</label></th>
+                  <td class="write_form-item">
+                    <span class="default_select-box">
+                        <label>{{userRGroup['nat_cd'].value | label: countries}}</label>
+                        <select formControlName="nat_cd" class="default_select">
+                            <option *ngFor="let country of countries" [value]="country.value">{{country.label}}</option>
+                        </select>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'권한' | localize}}</label></th>
+                  <td class="write_form-item">
+                    <span class="default_select-box">
+                        <label>{{userRGroup['lvl'].value | label: levels}}</label>
+                        <select formControlName="lvl" class="default_select">
+                            <option *ngFor="let lev of levels" [value]="lev.value">{{lev.label}}</option>
+                        </select>
+                    </span>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </form>
+          <!--// write table -->
+
+
+        </div>
+
+        <!-- Btn //-->
+        <div class="btn-wrap">
+          <a class="btn-type2" (click)="onSave()"><span class="btn-ico ico-check02">icon</span>{{'저장' | localize}}</a>
+          <a class="btn-type3" (click)="onReset()"><span class="btn-ico ico-cancel">icon</span>{{'초기화' | localize}}</a>
+        </div>
+        <!--// Btn -->
+
+      </div>
+    </div>
+  </div>
+
+</div>

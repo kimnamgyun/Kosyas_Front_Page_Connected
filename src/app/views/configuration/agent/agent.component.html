@@ -1,0 +1,112 @@
+<!-- title //-->
+<div class="title_wrap">
+  <app-breadcrumb></app-breadcrumb>
+</div>
+<!--// title -->
+
+
+<!-- contents-wrap //-->
+<div class="contents-wrap">
+
+
+  <div class="contents-box">
+    <div class="col-1">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'에이전트 매니저' | localize}}</h2>
+        <div class="contents-area">
+
+          <!-- list table //-->
+          <div class="list_table">
+            <table>
+              <colgroup>
+                <col  />
+                <col  />
+                <col  />
+                <col  />
+                <col  />
+              </colgroup>
+              <thead>
+              <tr>
+                <th>{{'타입' | localize}}</th>
+                <th>{{'최대 에이전트수' | localize}}</th>
+                <th>{{'룰 버전' | localize}}</th>
+                <th>{{'openSSL 지원 여부' | localize}}</th>
+                <th>{{'버전' | localize}}</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>{{agentManager['type']}}</td>
+                <td>{{agentManager['max_agents']}}</td>
+                <td>{{agentManager['rule_version']}}</td>
+                <td>{{agentManager['openssl']}}</td>
+                <td>{{agentManager['version']}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--// list table -->
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="contents-box">
+    <div class="col-1">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'에이전트 리스트' | localize}}</h2>
+        <div class="contents-area">
+
+          <!-- list table //-->
+          <div class="list_table">
+            <table>
+              <colgroup>
+                <col  />
+                <col  />
+                <col  />
+                <col  />
+                <col  />
+              </colgroup>
+              <thead>
+              <tr>
+                <th>{{'상태' | localize}}</th>
+                <th>{{'에이전트 아이디' | localize}}</th>
+                <th>{{'에이전트 명' | localize}}</th>
+                <th>IP</th>
+                <th>{{'시스템 종류' | localize}}</th>
+                <th>{{'버전' | localize}}</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let agentList of agentLists;">
+                <td>
+                  <img src="/assets/images/ico/ico_active.png" alt="active" *ngIf="agentList.status === 'Active'" />
+                  <img src="/assets/images/ico/ico_inactive.png" alt="active" *ngIf="agentList.status === 'Inactive'" />
+                </td>
+                <td class="alignL">{{agentList['id']}}</td>
+                <td class="alignL">{{agentList['name']}}</td>
+                <td>{{agentList['ip']}}</td>
+                <td>{{agentList['system']}}</td>
+                <td>{{agentList['version']}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--// list table -->
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

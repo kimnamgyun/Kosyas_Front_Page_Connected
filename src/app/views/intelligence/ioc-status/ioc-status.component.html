@@ -1,0 +1,80 @@
+<!-- title //-->
+<div class="title_wrap">
+  <app-breadcrumb></app-breadcrumb>
+</div>
+<!--// title -->
+
+<!-- contents-wrap //-->
+<div class="contents-wrap">
+
+  <!-- Search Date //-->
+  <app-date-period (search)="onSearch($event)" #dateperiod></app-date-period>
+  <!--// Search Date -->
+
+
+  <div class="contents-box">
+    <div class="col-1">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'IOC 업데이트 사항' | localize}}</h2>
+        <div class="contents-area">
+          <p><canvas id="canvasUpdateInfo">{{ chartUpdateInfo }}</canvas></p>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="contents-box">
+
+    <div class="col-1">
+      <div class="contents-inner">
+
+        <h2 class="title-h2">{{'위험 IP 대역대' | localize}}</h2>
+        <div class="contents-area">
+
+
+          <!-- list table //-->
+          <div class="list_table">
+            <table>
+              <colgroup>
+                <col width="33.4%" />
+                <col width="33.3%" />
+                <col width="33.3%" />
+              </colgroup>
+              <thead>
+              <tr>
+                <th>{{'시간' | localize}}</th>
+                <th>{{'시작 주소' | localize}}</th>
+                <th>{{'종료 주소' | localize}}</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr  *ngFor="let item of items">
+                <td>{{item.time}}</td>
+                <td>{{item.start}}</td>
+                <td>{{item.end}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--// list table -->
+
+          <!-- pagination //-->
+          <app-pagination [page]="page" [pageSize]="pageSize" [rowsSize]="rowsSize" [totalRows]="totalRows"
+                          (changePage)="paginationHandler($event)"></app-pagination>
+          <!--// pagination -->
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+<!--// contents-wrap -->

@@ -1,0 +1,29 @@
+$images: '../../../../assets/images';
+
+.sys_card {}
+.sys_card-wrap {}
+.sys_card-wrap:after{content:''; display:block; clear:both; }
+.sys_card-list {float:left; width:16.66667%;  box-sizing:border-box; -webkit-box-sizing:border-box; -ms-box-sizing:border-box;}
+
+.sys_card-list:nth-child(1) .sys_card-item{margin: 0 25px 0 0;}
+.sys_card-list:nth-child(2) .sys_card-item{margin: 0 20px 0 5px;}
+.sys_card-list:nth-child(3) .sys_card-item{margin: 0 15px 0 10px;}
+.sys_card-list:nth-child(4) .sys_card-item{margin: 0 10px 0 15px;}
+.sys_card-list:nth-child(5) .sys_card-item{margin: 0 5px 0 20px;}
+.sys_card-list:nth-child(6) .sys_card-item{margin: 0 0 0 25px;}
+
+.sys_card-item {background:#fbfbfb; border:1px solid #d6d6d6; box-sizing:border-box; -webkit-box-sizing:border-box; -ms-box-sizing:border-box; min-height:200px; padding:20px 20px 30px 20px; text-align:left; position:relative;}
+
+.sys_card-icon {min-height:70px; background-position:right 0; background-repeat:no-repeat;}
+.sys_card-icon.nth-1 {background-image:url($images + '/ico/ico_syscard01.png');}
+.sys_card-icon.nth-2 {background-image:url($images + '/ico/ico_syscard02.png');}
+.sys_card-icon.nth-3 {background-image:url($images + '/ico/ico_syscard03.png');}
+.sys_card-icon.nth-4 {background-image:url($images + '/ico/ico_syscard04.png');}
+.sys_card-icon.nth-5 {background-image:url($images + '/ico/ico_syscard05.png');}
+.sys_card-icon.nth-6 {background-image:url($images + '/ico/ico_syscard06.png');}
+
+.sys_card-data {font-size:32px; font-weight:700; color:#222; line-height:1.1; letter-spacing:-0.05em;}
+.sys_card-text {font-size:16px; font-weight:400; color:#999; line-height:1.1; letter-spacing:-0.05em; margin-top:10px; text-transform:uppercase;}
+
+.sys_card-progress {background:#efefef; margin-top:20px;}
+.sys_card-progress_data {display:block; font-size:100%; background:#f7bd16; width:auto; height:10px; line-height:10px; -webkit-box-sizing:border-box; box-sizing:border-box; animation:loadbar 2s;-webkit-animation:loadbar 2s;}

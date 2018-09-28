@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+
+  <title>C-SIMS</title>
+  <link rel="shortcut icon" href="../../asset/images/favicon.png">
+</head>
+
+<body class="print_popup">
+
+<!-- wrap //-->
+<div class="print_popup-wrap">
+
+  <div class="print_popup-box">
+
+
+    <!-- Print Contents //-->
+    <div class="print_popup-contents">
+
+
+
+
+      <!-- title //-->
+      <div class="title_wrap">
+        <h1 class="title_box">{{'시스템' | localize}}</h1>
+      </div>
+      <!--// title -->
+
+      <!-- contents-wrap //-->
+      <div class="contents-wrap">
+
+
+        <!-- 01//-->
+        <div class="contents-box">
+          <div class="col-2">
+            <div class="contents-inner">
+              <h2 class="title-h2">{{'CPU 사용량 순위' | localize}}</h2>
+              <div class="contents-area">
+                <!-- Chart //-->
+                <div class="chart_progress">
+                  <p class="chart_progress-tit">{{cpuTitle}}</p>
+                  <p class="chart_progress-bar">
+                    <span class="chart_progress-data" [style.width.%]="cpu">{{ cpu }}%</span>
+                  </p>
+                </div>
+                <!--// Chart -->
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="contents-inner">
+              <h2 class="title-h2">{{'Memory 사용량 순위' | localize}}</h2>
+              <div class="contents-area">
+                <!-- Chart //-->
+                <div class="chart_progress">
+                  <p class="chart_progress-tit">{{memoryTitle}}</p>
+                  <p class="chart_progress-bar">
+                    <span class="chart_progress-data bgOrange" [style.width.%]="memory">{{ memory }}%</span>
+                  </p>
+                </div>
+                <!--// Chart -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--// 01-->
+
+
+        <!-- 02 //-->
+        <div class="contents-box">
+          <div class="col-2">
+            <div class="contents-inner">
+              <h2 class="title-h2">{{'이벤트 발생' | localize}}</h2>
+              <div class="contents-area">
+                <p class=""><canvas id="canvasTime">{{ chartTime }}</canvas></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="contents-inner">
+              <h2 class="title-h2">{{'카테고리 별 이벤트 발생' | localize}}</h2>
+              <div class="contents-area">
+                <p class=""><canvas id="canvasCategory">{{ chartCategory }}</canvas></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--// 02 -->
+        <!-- 03 //-->
+        <div class="contents-box">
+          <div class="col-2">
+            <div class="contents-inner">
+              <h2 class="title-h2">Docker : {{'호스트 별 컨테이너' | localize}}</h2>
+              <div class="contents-area">
+                <p class=""><canvas id="canvasDocker">{{ chartDocker }}</canvas></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="contents-inner">
+
+              <h2 class="title-h2">Docker : {{'컨테이너 정보' | localize}}</h2>
+              <div class="contents-area">
+
+
+                <!-- items table //-->
+                <div class="list_table">
+                  <table>
+                    <colgroup>
+                      <col width="25%" />
+                      <col width="20%" />
+                      <col width="15%" />
+                      <col width="25%" />
+                      <col width="15%" />
+                    </colgroup>
+                    <thead>
+                    <tr>
+                      <th>
+                        {{'컨테이너 이름' | localize}}
+                      </th>
+                      <th>
+                        {{'CPU 사용량' | localize}}
+                      </th>
+                      <th>
+                        {{'DISK IO' | localize}}
+                      </th>
+                      <th>
+                        {{'Memory 사용량' | localize}}
+                      </th>
+                      <th>
+                        {{'컨테이너 수' | localize}}
+                      </th>
+                    </tr>
+                    </thead>
+                    <tr  *ngFor="let dockerCon of dockerCons;">
+                      <td class="alignL">{{dockerCon[localization.pick('컨테이너 이름')]}}</td>
+                      <td>{{dockerCon[localization.pick('CPU 사용량')]}}</td>
+                      <td>{{dockerCon[localization.pick('DISK IO')]}}</td>
+                      <td>{{dockerCon[localization.pick('Memory 사용량')]}}</td>
+                      <td>{{dockerCon[localization.pick('컨테이너 수')]}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!--// items table -->
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--// 03 -->
+
+
+
+      </div>
+      <!--// contents-wrap -->
+
+
+
+
+
+    </div>
+    <!--// Print Contents -->
+
+  </div>
+
+</div>
+<!--// wrap -->
+
+
+</body>
+</html>

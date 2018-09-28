@@ -1,0 +1,103 @@
+<!-- title //-->
+<div class="title_wrap">
+  <app-breadcrumb></app-breadcrumb>
+</div>
+<!--// title -->
+
+<!-- contents-wrap //-->
+<div class="contents-wrap">
+
+  <!-- Search Date //-->
+  <app-date-period (search)="onSearch($event)" #dateperiod></app-date-period>
+  <!--// Search Date -->
+
+  <!-- 01//-->
+  <div class="contents-box">
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'알람 횟수' | localize}}</h2>
+        <div class="contents-area">
+          <p class=""><canvas id="canvasAlertCount">{{ chartAlertCount }}</canvas></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'시간당 알람 횟수' | localize}}</h2>
+        <div class="contents-area">
+          <p class=""><canvas id="canvasAlertCountPerTime">{{ chartAlertCountPerTime }}</canvas></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--// 01-->
+
+
+  <!-- 02 //-->
+  <div class="contents-box">
+    <div class="col-4">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'침입탐지' | localize}} : {{'Metric 알람' | localize}}</h2>
+        <div class="contents-area dash_count-box">
+          <p class="dash_count-num colorOrange">{{ metricCount }}</p>
+          <p class="dash_count-info">Alerts</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'침입탐지' | localize}} : {{'12레벨 알람' | localize}}</h2>
+        <div class="contents-area dash_count-box">
+          <p class="dash_count-num colorRed">{{ lv12Count }}</p>
+          <p class="dash_count-info">level 12 or above alerts</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'침입탐지' | localize}} : {{'인증 실패' | localize}}</h2>
+        <div class="contents-area dash_count-box">
+          <p class="dash_count-num colorBule">{{ authFailed }}</p>
+          <p class="dash_count-info">Authentication Failure</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'침입탐지' | localize}} : {{'인증 성공' | localize}}</h2>
+        <div class="contents-area dash_count-box">
+          <p class="dash_count-num colorGreen">{{ authSuccess }}</p>
+          <p class="dash_count-info">Authentication success</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--// 02-->
+
+
+  <!-- 03 //-->
+  <div class="contents-box">
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'침입탐지' | localize}} : {{'상위 5 에이전트' | localize}}</h2>
+        <div class="contents-area">
+          <p class=""><canvas id="canvasThreatTop5Agent">{{ chartThreatTop5Agent }}</canvas></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'침입탐지' | localize}} : {{'시간당 알람 횟수' | localize}}</h2>
+        <div class="contents-area">
+          <p class=""><canvas id="canvasThreatAlertCountPerTime">{{ chartThreatAlertCountPerTime }}</canvas></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--// 03 -->
+
+
+
+
+</div>
+<!--// contents-wrap -->

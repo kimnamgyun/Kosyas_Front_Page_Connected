@@ -1,0 +1,8 @@
+$images: '../../../assets/images';
+
+.error-wrap {margin:120px auto; width:640px;}
+.error-box {background:url($images + '/common/ico_error.png') center 0 no-repeat;  padding-top:150px; text-align:center; }
+.error-box .large_btn-wrap {margin-top:60px;}
+.error-box .btn-type5 {min-width:280px;}
+.error-type {font-size:36px; font-weight:400; color:#222; letter-spacing:-0.05em;}
+.error-text {font-size:16px;color:#777; margin-top:10px;}

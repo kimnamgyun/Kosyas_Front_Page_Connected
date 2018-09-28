@@ -1,0 +1,23 @@
+<div>
+  <table>
+    <tr>
+      <th>
+        key
+        <app-sort [fieldName]="'key'" [items]="items" (itemsChange)="this.items = $event"></app-sort>
+      </th>
+      <th>ko-KR</th>
+      <th>en-US</th>
+      <th>fr-FR</th>
+    </tr>
+    <tr *ngFor="let item of items">
+      <td class="key">{{item.key}}</td>
+      <td class="key">{{item['ko-KR']}}</td>
+      <td class="key">{{item['en-US']}}</td>
+      <td class="key">{{item['fr-FR']}}</td>
+    </tr>
+  </table>
+</div>
+
+<div>
+  <button (click)="onSubmit()">추출 및 저장</button>
+</div>

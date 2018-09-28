@@ -1,0 +1,52 @@
+@charset 'UTF-8';
+
+.print_popup {width:100%; min-width:auto; height: 100%; margin: 0; padding: 0;}
+* { box-sizing: border-box;-webkit-box-sizing: border-box;-ms-box-sizing: border-box;}
+
+.print_popup-wrap {background:#efefef;}
+
+.print_popup-box {width: 210mm; min-height: 297mm; margin:0 auto; background:#fff;}
+
+
+
+/*Print Cover*/
+.print_popup-cover {min-height:297mm;padding:60px; background-color:#fff; background-image:url('../../../../../assets/images/print_bg01.png'), url('../../../../../assets/images/print_bg02.png');  background-position:100% 120px ,0 100%; background-repeat:no-repeat; box-sizing:border-box; -webkit-box-sizing:border-box; -ms-box-sizing: border-box; position:relative;}
+
+.print_popup-cover_title {position:relative; margin-top:200px;}
+.print_popup-cover_title h1 {font-size:56px; font-weight:700; color:#222;}
+.print_popup-cover_title h1:before {content:''; display:block; background:url('../../../../../assets/images/print_bg03.png') 0 0 no-repeat; font-size:0; height:4px; margin-bottom:5px;}
+.print_popup-cover_title h1:after {content:''; display:block; background:url('../../../../../assets/images/print_bg03.png') 0 0 no-repeat;  font-size:0; height:4px; margin-top:10px;}
+
+.print_popup-cover_date {font-size:24px; color:#222; margin-top:20px;}
+.print_popup-cover_flogo {position:absolute; bottom:60px; right:60px;}
+
+/*Print Contents*/
+.print_popup-contents {padding:28px;}
+.print_popup-contents + .print_popup-contents {padding-top:0;margin-top:-28px;}
+.print_popup-contents + .print_popup-contents .title_wrap{margin-top:28px;}
+
+.print_popup-contents .title_wrap {border:1px solid #d9d9d9;}
+.print_popup-contents .contents-wrap{padding:2px;}
+.print_popup-contents .contents-inner{border-top:1px solid #f1f1f1;}
+
+.print_popup-contents .contents-area{padding:20px;}
+
+
+@page {size: A4; margin: 0; padding:0;}
+@media print {
+    html, body {
+        width: 210mm;
+        height: 297mm;
+        background: #fff;
+    }
+    .print_popup-wrap {background:#fff;}
+    .print_popup-box,
+    .print_popup-contents{
+        page-break-after: always;
+    }
+    .print_popup-contents + .print_popup-contents {margin-top:0px;}
+    .print_popup-contents .search_date {display:none;}
+}
+
+.title_box {line-height:57px; height:60px;padding:0 30px; color:#333; font-size:24px; font-weight:700;}
+.title_box span {display:inline-block; padding-left:36px; background:url('../../../../../assets/images/common/ico_arrow03.png') 15px 50% no-repeat;}

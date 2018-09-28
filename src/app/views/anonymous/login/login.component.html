@@ -1,0 +1,56 @@
+  <div class="login_container">
+    <h2 class="login_title">Login</h2>
+
+    <!-- Login Form //-->
+    <div class="login_form">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <p class="login_form-item">
+          <label class="login_form-label">{{'사용자 아이디 (e-mail)' | localize}}</label>
+          <input formControlName="id"
+                 type="text" class="login_form-input"
+                 maxlength="40"
+                 placeholder="{{'사용자 아이디 (e-mail)' | localize}}" autocomplete="on" />
+          <span *ngIf="submitted && loginGroup['id'].errors">
+              <span class="login_errorMsg" *ngIf="loginGroup['id'].errors?.required">{{'아이디를 입력하세요.' | localize}}</span>
+              <span class="login_errorMsg" *ngIf="loginGroup['id'].errors?.minlength">{{'아이디는 7자 이상 입니다.' | localize}}</span>
+              <span class="login_errorMsg" *ngIf="!loginGroup['id'].errors?.minlength &&
+               loginGroup['id'].errors?.email">{{'아이디는 이메일 형식 입니다.' | localize}}</span>
+          </span>
+        </p>
+
+        <p class="login_form-item">
+          <label class="login_form-label">{{'비밀번호 (Password)' | localize}}</label>
+          <input formControlName="pw"
+                 type="password"
+                 class="login_form-input"
+                 maxlength="50"
+                 placeholder="{{'비밀번호 (Password)' | localize}}" />
+          <span *ngIf="submitted && loginGroup['pw'].errors">
+              <span class="login_errorMsg" *ngIf="loginGroup['pw'].errors?.required">{{'비밀번호를 입력하세요.' | localize}}</span>
+              <span class="login_errorMsg" *ngIf="loginGroup['pw'].errors?.minlength">{{'비밀번호는 9자 이상 입니다.' | localize}}</span>
+              <span class="login_errorMsg"
+                    *ngIf="!loginGroup['pw'].errors?.required && !loginGroup['pw'].errors?.minlength &&
+                    loginGroup['pw'].errors?.pattern">{{'비밀번호는 하나 이상의 대소문자, 숫자, 특수문자를 포함하여야 합니다.' | localize}}</span>
+          </span>
+        </p>
+
+        <p class="login_form-btn_wrap">
+          <input type="submit" class="login_form-btn" id="login-btn" value="LOGIN" />
+        </p>
+
+      </form>
+    </div>
+    <!--// Login Form -->
+
+    <div class="login_btn-wrap">
+      <a class="login_btn-link" routerLink="/anonymous/register">{{'사용자등록' | localize}}</a>
+      <a class="login_btn-link" routerLink="/anonymous/find-id">{{'ID 찾기' | localize}}</a>
+      <a class="login_btn-link" routerLink="/anonymous/find-password">{{'PW 찾기' | localize}}</a>
+    </div>
+    <div class="login_info">
+      <p class="login_info-text">{{'KOSYAS 보안관리 시스템 C-SIMS를 이용해 주셔서 감사합니다.' | localize}}</p>
+      <p class="login_info-text">{{'처음 사용하시는 사용자는 신규 사용자 등록을 한 후 사용이 가능합니다.' | localize}}</p>
+      <p class="login_info-text">{{'C-SIMS 사용시 발생하는 장애는 KOSYAS (전화번호 : 02-2097-9797)로 문의 바랍니다.' | localize}}</p>
+    </div>
+  </div>

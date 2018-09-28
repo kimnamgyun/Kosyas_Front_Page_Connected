@@ -1,0 +1,11 @@
+<div class="pagination noselect">
+  <ul class="pagination-list">
+    <li class="pagination-first" [class.no-visible]="first === 0"><a (click)="navigate(first)"><img src="/assets/images/ico/ico_listfirst.png" alt="First" /></a></li>
+    <li class="pagination-prev" [class.no-visible]="prev === 0"><a (click)="navigate(prev)"><img src="/assets/images/ico/ico_listprev.png" alt="Prev" /></a></li>
+
+    <li *ngFor="let item of pages" class="number"><a [class.on]="item === page" (click)="navigate(item)">{{item}}</a></li>
+
+    <li class="pagination-next" [class.no-visible]="next === 0"><a (click)="navigate(next)"><img src="/assets/images/ico/ico_listnext.png" alt="Next" /></a></li>
+    <li class="pagination-last" [class.no-visible]="last === 0"><a (click)="navigate(last)"><img src="/assets/images/ico/ico_listlast.png" alt="Last" /></a></li>
+  </ul>
+</div>

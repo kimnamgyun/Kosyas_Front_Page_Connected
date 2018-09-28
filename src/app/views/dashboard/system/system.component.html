@@ -1,0 +1,148 @@
+<!-- title //-->
+<div class="title_wrap">
+  <app-breadcrumb></app-breadcrumb>
+</div>
+<!--// title -->
+
+<!-- contents-wrap //-->
+<div class="contents-wrap">
+
+
+  <!-- Search Date //-->
+  <app-date-period (search)="onSearch($event)" #dateperiod></app-date-period>
+  <!--// Search Date -->
+
+
+  <!-- 01//-->
+  <div class="contents-box">
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'CPU 사용량 순위' | localize}}</h2>
+        <div class="contents-area">
+          <!-- Chart //-->
+          <div class="chart_progress">
+            <p class="chart_progress-tit">{{cpuTitle}}</p>
+            <p class="chart_progress-bar">
+              <span class="chart_progress-data" [style.width.%]="cpu">{{ cpu }}%</span>
+            </p>
+          </div>
+          <!--// Chart -->
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'Memory 사용량 순위' | localize}}</h2>
+        <div class="contents-area">
+          <!-- Chart //-->
+          <div class="chart_progress">
+            <p class="chart_progress-tit">{{memoryTitle}}</p>
+            <p class="chart_progress-bar">
+              <span class="chart_progress-data bgOrange" [style.width.%]="memory">{{ memory }}%</span>
+            </p>
+          </div>
+          <!--// Chart -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--// 01-->
+
+
+  <!-- 02 //-->
+  <div class="contents-box">
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'이벤트 발생' | localize}}</h2>
+        <div class="contents-area">
+          <p class=""><canvas id="canvasTime">{{ chartTime }}</canvas></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'카테고리 별 이벤트 발생' | localize}}</h2>
+        <div class="contents-area">
+          <p class=""><canvas id="canvasCategory">{{ chartCategory }}</canvas></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--// 02 -->
+
+  <!-- 03 //-->
+  <div class="contents-box">
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 class="title-h2">Docker : {{'호스트 별 컨테이너' | localize}}</h2>
+        <div class="contents-area">
+          <p class=""><canvas id="canvasDocker">{{ chartDocker }}</canvas></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="contents-inner">
+
+        <h2 class="title-h2">Docker : {{'컨테이너 정보' | localize}}<a class="btn-type2" (click)="Excel.exportToExcel(localization.pick('컨테이너 정보'), dockerCons)"><span class="btn-ico ico-down">icon</span>Export Raw Data</a></h2>
+        <div class="contents-area">
+
+
+          <!-- items table //-->
+          <div class="list_table">
+            <table>
+              <colgroup>
+                <col width="25%" />
+                <col width="20%" />
+                <col width="15%" />
+                <col width="25%" />
+                <col width="15%" />
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  {{'컨테이너 이름' | localize}}
+                  <app-sort [fieldName]="localization.pick('컨테이너 이름')" [items]="dockerCons" (itemsChange)="this.dockerCons = $event"></app-sort>
+                </th>
+                <th>
+                  {{'CPU 사용량' | localize}}
+                  <app-sort [fieldName]="localization.pick('CPU 사용량')" [items]="dockerCons" (itemsChange)="this.dockerCons = $event"></app-sort>
+                </th>
+                <th>
+                  {{'DISK IO' | localize}}
+                  <app-sort [fieldName]="localization.pick('DISK IO')" [items]="dockerCons" (itemsChange)="this.dockerCons = $event"></app-sort>
+                </th>
+                <th>
+                  {{'Memory 사용량' | localize}}
+                  <app-sort [fieldName]="localization.pick('Memory 사용량')" [items]="dockerCons" (itemsChange)="this.dockerCons = $event"></app-sort>
+                </th>
+                <th>
+                  {{'컨테이너 수' | localize}}
+                  <app-sort [fieldName]="localization.pick('컨테이너 수')" [items]="dockerCons" (itemsChange)="this.dockerCons = $event"></app-sort>
+                </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr  *ngFor="let dockerCon of dockerCons;">
+                <td class="alignL">{{dockerCon[localization.pick('컨테이너 이름')]}}</td>
+                <td>{{dockerCon[localization.pick('CPU 사용량')]}}</td>
+                <td>{{dockerCon[localization.pick('DISK IO')]}}</td>
+                <td>{{dockerCon[localization.pick('Memory 사용량')]}}</td>
+                <td>{{dockerCon[localization.pick('컨테이너 수')]}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--// items table -->
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--// 03 -->
+
+
+
+
+</div>
+<!--// contents-wrap -->

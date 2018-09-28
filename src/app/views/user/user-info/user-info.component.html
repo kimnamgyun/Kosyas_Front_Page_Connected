@@ -1,0 +1,128 @@
+<!-- title //-->
+<div class="title_wrap">
+  <app-breadcrumb></app-breadcrumb>
+</div>
+<!--// title -->
+
+
+
+
+<!-- contents-wrap //-->
+<div class="contents-wrap">
+  <div class="contents-box">
+
+    <div class="col-1">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'사용자 정보' | localize}}</h2>
+        <div class="contents-area">
+
+          <form [formGroup]="userForm">
+            <!-- write table //-->
+            <div class="write_table">
+              <table>
+                <colgroup>
+                  <col width="95px" />
+                  <col  />
+                </colgroup>
+                <tbody>
+                <tr>
+                  <th><label class="write_form-label">{{'아이디' | localize}}</label></th>
+                  <td class="write_form-item">
+                    <input type="text" class="write_form-input" formControlName="id" disabled />
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'비밀번호' | localize}}</label></th>
+                  <td class="write_form-item check_item">
+                    <input type="password" class="write_form-input" formControlName="pw"
+                           maxlength="50"
+                           placeholder="{{'비밀번호(9~50자, 특수, 영대, 숫자 1개 포함)' | localize}}"  />
+                    <a class="btn-type2 change-pw" (click)="onChangePassword()"><span class="btn-ico ico-check02">icon</span>{{'변경' | localize}}</a>
+                    <span *ngIf="submittedPassword && userGroup['pw'].errors">
+                      <span class="userRForm colorRed" *ngIf="userGroup['pw'].errors?.required">{{'비밀번호를 입력하세요.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="userGroup['pw'].errors?.minlength">{{'비밀번호는 9자 이상 입니다.' | localize}}</span>
+                      <span class="userRForm colorRed"
+                            *ngIf="!userGroup['pw'].errors?.required && !userGroup['pw'].errors?.minlength &&
+                            userGroup['pw'].errors?.pattern">{{'비밀번호는 하나 이상의 대소문자, 숫자, 특수문자를 포함하여야 합니다.' | localize}}</span>
+                   </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'비밀번호 확인' | localize}}</label></th>
+                  <td class="write_form-item check_item">
+                    <input type="password" class="write_form-input" formControlName="pw_t"
+                           maxlength="50"
+                           placeholder="{{'비밀번호 재확인' | localize}}"  />
+                    <span *ngIf="submittedPassword">
+                      <span class="userRForm colorRed" *ngIf="userGroup['pw_t'].errors?.required">{{'비밀번호 확인을 입력하세요.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="!userGroup['pw_t'].errors?.required &&
+                        userGroup['pw_t'].errors?.match">{{'비밀번호와 비밀번호 재확인이 일치하지 않습니다.' | localize}}</span>
+                      </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'이름' | localize}}</label></th>
+                  <td class="write_form-item">
+                    <input type="text" class="write_form-input" formControlName="nm"
+                           maxlength="50"
+                           placeholder="{{'이름(2~50자)' | localize}}"/>
+                    <span *ngIf="submitted">
+                      <span class="userRForm colorRed" *ngIf="userGroup['nm'].errors?.required">{{'이름을 입력하세요.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="userGroup['nm'].errors?.minlength">{{'이름은 2자 이상 입니다.' | localize}}</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'휴대폰' | localize}}</label></th>
+                  <td class="write_form-item">
+                    <input type="text" class="write_form-input" formControlName="phone"
+                           maxlength="30"
+                           placeholder="{{'휴대폰번호(10~30자)' | localize}}"  appPhoneOnly />
+                    <span *ngIf="submitted">
+                      <span class="userRForm colorRed" *ngIf="userGroup['phone'].errors?.required">{{'휴대폰번호를 입력하세요.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="userGroup['phone'].errors?.minlength">{{'휴대폰번호는 10자 이상 입니다.' | localize}}</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'회사' | localize}}</label></th>
+                  <td class="write_form-item">
+                    <input type="text" class="write_form-input" formControlName="comp_nm"
+                           maxlength="50"
+                           placeholder="{{'회사(2~50자)' | localize}}"  />
+                    <span *ngIf="submitted">
+                      <span class="userRForm colorRed" *ngIf="userGroup['comp_nm'].errors?.required">{{'회사를 입력하세요.' | localize}}</span>
+                      <span class="userRForm colorRed" *ngIf="userGroup['comp_nm'].errors?.minlength">{{'회사는 2자 이상 입니다.' | localize}}</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th><label class="write_form-label">{{'국가' | localize}}</label></th>
+                  <td class="write_form-item">
+                      <span class="default_select-box">
+                          <label>{{userGroup['nat_cd'].value | label: countries}}</label>
+                          <select formControlName="nat_cd" class="default_select">
+                              <option *ngFor="let country of countries" [value]="country.value">{{country.label}}</option>
+                          </select>
+                      </span>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--// write table -->
+          </form>
+
+        </div>
+
+        <!-- Btn //-->
+        <div class="btn-wrap">
+          <a class="btn-type2" (click)="onSave()"><span class="btn-ico ico-check02">icon</span>{{'저장' | localize}}</a>
+          <a class="btn-type3" (click)="onReset()"><span class="btn-ico ico-cancel">icon</span>{{'초기화' | localize}}</a>
+        </div>
+        <!--// Btn -->
+
+      </div>
+    </div>
+  </div>
+</div>

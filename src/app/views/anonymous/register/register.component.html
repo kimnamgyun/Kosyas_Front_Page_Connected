@@ -1,0 +1,435 @@
+<div *ngIf="step == 1" class="register_container">
+  <h2 class="register_title"><span class="title_ico type2"></span>{{'이용약관, 개인정보 수집 및 이용 동의' | localize}}</h2>
+
+
+  <form [formGroup]="termsForm">
+
+    <!-- terms //-->
+    <div class="register_terms">
+      <div class="register_terms-wrap all_agree">
+        <p>{{'이용 약관, 개인정보 수집 및 이용에' | localize}}<br />{{'모두 동의 합니다.' | localize}}</p>
+        <div class="register_terms-checkbox">
+          <label class="checkbox-label" [class.checkbox-on]="all">
+            <input type="checkbox" (click)="changeAll()" [ngModel]="all" formControlName="all" class="checkbox-obj" />
+          </label>
+        </div>
+      </div>
+
+      <div class="register_terms-title">
+        <h3 class="register_terms-title_h3">{{'C-SIMS 서비스 이용 약관 동의' | localize}} <span class="register_terms-title_check">{{'(필수)' | localize}}</span></h3>
+        <div class="register_terms-checkbox">
+          <label class="checkbox-label" [class.checkbox-on]="service">
+            <input type="checkbox" [(ngModel)]="service" formControlName="service" class="checkbox-obj" />
+          </label>
+        </div>
+      </div>
+      <div class="register_terms-wrap scroll_box">
+        제 1 조 (목적)<br />
+        <br />
+        이 약관은 한국시스템보증(주)(이하 “KOSYAS”이라 합니다.)가 운영하는 C-SIMS 서비스(이하 “서비스”라 합니다.)를 가입하여 이용함에 있어 C-SIMS과 이용자의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.<br />
+        <br />
+        제 2 조 (정의)<br />
+        <br />
+        본 약관에서 사용하는 용어의 의미는 다음과 같습니다.<br />
+        ① “C-SIMS”는 “회사”가 “회원”에게 제공하는 업무 관련 제반 서비스를 말합니다.<br />
+        ② “회원”은 “C-SIMS”를 이용하기 위해 본 약관에 동의한 이용자를 말합니다.<br />
+        ③ “아이디(ID)”는 회원의 식별과 “C-SIMS” 이용을 위한 문자와 숫자의 조합을 의미합니다.<br />
+        ④ “비밀번호”는 “회원”이 설정한 “아이디”와 일치하는 “회원”임을 확인하고, 비밀 보호를 위해 회원 자신이 정한 문자와 숫자의 조합을 의미합니다.<br />
+        <br />
+        제3조 (약관의 게시 및 개정)<br />
+        <br />
+        ① “회사”는 이 약관의 내용을 “회원”이 쉽게 알 수 있도록 “C-SIMS” 홈페이지(이하 “서비스 홈페이지”)에 게시합니다.<br />
+        ② “회사”는 “약관의 규제에 관한 법률” 등 관련법을 위배하지 않는 범위 내에서 약관을 개정할 수 있습니다.<br />
+        ③ “회사”가 약관을 개정할 경우에는 시행일 및 개정사유를 명시하여 “서비스 홈페이지”에 시행일 7일 전까지 공지합니다.<br />
+        ④ 제3항의 방법으로 변경 고지된 약관은 기존의 “회원”에게도 유효하게 적용됩니다.<br />
+        <br />
+        제4조 (약관의 해석 및 관할법원)<br />
+        <br />
+        ① 약관에 정하지 아니한 사항과 이 약관의 해석에 관하여는 관계법령 및 상관례에 따릅니다.<br />
+        ② “회사”와 “회원” 간 분쟁이 발생할 경우에 관할 법원은 “서울동부지방법원”으로 합니다.<br />
+        <br />
+        제5조 (회원가입 및 자격)<br />
+        <br />
+        ① 이용 계약은 “회원”이 되고 자 하는 가입 신청자가 약관 내용에 대하여 동의한 후 회원가입신청을 하고, “회사”가 이러한 신청에 대하여 승낙함으로써 체결됩니다.<br />
+        ② “회사”는 가입 신청자의 신청에 대하여 이용을 승낙함을 원칙으로 합니다. 다만, “회사”는 다음 각호에 해당하는 신청에 대하여는 회원가입을 인정하지 않거나 서비스 이용을 제한, 영구금지, 회원자격 박탈 등의 조치를 할 수 있습니다.<br />
+        가. 다른 사람의 명의를 사용하여 가입 신청한 경우<br />
+        나. 신청 시 필수 작성 사항을 기재하지 않거나 허위로 기재한 경우<br />
+        다. 관계 법령의 위반을 목적으로 신청하거나 그러한 행위를 하는 경우<br />
+        라. 사회의 안녕질서 또는 미풍양속을 저해할 목적으로 신청하거나 그러한 행위를 하는 경우<br />
+        마. 다른 사람의 “C-SIMS” 이용을 방해하거나 그 정보를 도용하는 등 전자거래질서를 위협하는 경우<br />
+        바. 제10조 “회원”의 의무를 지키지 않는 경우<br />
+        ③ 제1항에 따른 신청에 있어 “회사”는 “회원”의 종류에 따라 본인인증을 요청할 수 있습니다.<br />
+        ④ “회사”가 회원 자격을 박탈하는 경우에는 회원등록을 말소합니다. 이 경우 “회원”에게 사전 통지하여 소명할 기회를 부여합니다. 단, “회원”의 귀책사유로 통지할 수 없는 경우 통지를 생략할 수 있습니다.<br />
+        <br />
+        제6조 (회원 탈퇴)<br />
+        <br />
+        ① “회원”은 언제든지 탈퇴를 요청할 수 있으며, “회사”는 관련법 등이 정하는 바에 따라 이를 즉시 처리하여야 합니다. 단, 이용 중인 “C-SIMS”를 모두 해지한 이후에 탈퇴가 처리됩니다.<br />
+        ② “회사”는 ‘회원’이 서비스를 이용하지 않거나 로그인하지 않는 경우 정보통신망법 제29조에 따라 해당 계정의 개인정보를 삭제합니다.<br />
+        ③ 제2항에 의해 개인정보가 삭제된 경우, 해당 계정은 탈퇴 처리됩니다.<br />
+        <br />
+        제7조 (“회원”에 대한 통지)<br />
+        <br />
+        ① “회사”가 “회원”에 대한 통지를 하는 경우 “회원”이 “회사”에 제출한 전자우편 주소로 할 수 있습니다.<br />
+        ② “회사”는 불특정다수 “회원”에 대한 통지의 경우 1주일 이상 “서비스 홈페이지”에 게시함으로써 개별 통지에 갈음할 수 있습니다.<br />
+        <br />
+        제8조 (개인정보의 수집 및 개인정보취급방침)<br />
+        <br />
+        ① “회사”는 서비스를 제공하기 위하여 관련 법령의 규정에 따라 “회원”으로부터 필요한 개인정보를 수집합니다.<br />
+        ② “회사”의 “개인정보취급방침”은 “회사”와 이용계약을 체결한 “회원”에 한해 적용됩니다.<br />
+        <br />
+        제9조 (“회사”의 의무)<br />
+        <br />
+        ① “회사”는 본 약관이 정하는 바에 따라 지속적이고 안정적인 서비스를 제공하는 데 최선을 다합니다.<br />
+        ② “회사”는 수신 동의하지 않은 영리 목적의 광고성 전자우편, 문자메시지 등을 발송하지 않습니다.<br />
+        ③ “회사”는 서비스로 인해 알게 된 “회원”의 개인정보를 본인의 승낙 없이 제삼자에게 누설, 배포하지 않고, 이를 보호하기 위해 노력합니다. 개인정보보호에 관한 기타의 사항은 정보통신망법 및 “회사”가 별도로 정한 “개인정보취급방침”에 따르며 이때 “회원”은 회원의 권리를 갖습니다.<br />
+        ④ “회사”가 제삼자와 서비스 제공계약 등을 체결하여 “회원”에게 서비스를 제공하는 경우 개별서비스별로 “회원”에게 명시적인 동의를 받은 후 동의의 범위 내에서 회원의 개인정보를 제삼자와 공유하는 등 관련 법령을 준수합니다.<br />
+        <br />
+        제10조 (“회원”의 의무)<br />
+        <br />
+        ① “아이디”와 “비밀번호”에 관한 관리의 책임은 “회원”에게 있습니다.<br />
+        가. “회원”은 자신의 “아이디” 및 “비밀번호”를 제삼자가 부정한 목적으로 이용하게 하여서는 안 됩니다.<br />
+        나. “회원”이 “아이디” 또는 “비밀번호”를 도난당하거나 제삼자가 이를 사용하고 있음을 인지한 경우 즉시 “회사”에 통보하여야 하고, “회사”의 안내가 있는 경우에는 그에 따라야 합니다.<br />
+        ② “회원”은 다음 행위를 하여서는 안 됩니다.<br />
+        가. 타인의 정보도용<br />
+        나. “회사”가 게시한 정보의 변경<br />
+        다. “회사”가 정한 정보 이외의 정보(컴퓨터 프로그램 등) 등의 송신 또는 게시<br />
+        라. “회사”와 기타 제삼자의 저작권 등 지적 재산권에 대한 침해<br />
+        마. “회사” 및 기타 제삼자의 명예를 손상하거나 업무를 방해하는 행위<br />
+        바. 외설 또는 폭력적인 메시지, 화상, 음성, 기타 공서양속에 반하는 정보를 서비스에 공개 또는 게시하는 행위<br />
+        사. 기타 불법적이거나 부당한 행위<br />
+        ③ “회원”은 본 약관 및 관계 법령에서 규정한 사항을 준수합니다.<br />
+        ④ “회원”은 “C-SIMS”를 이용하여 얻은 정보를 “회사”의 사전 승낙 없이 복사, 복제, 변경, 번역, 출판 및 기타의 방법으로 사용하거나 이를 타인에게 제공할 수 없습니다.<br />
+        <br />
+        제11조 (책임 제한)<br />
+        <br />
+        ① “회사”는 다음 각 호의 경우로 인하여 “회원”에게 발생한 손해에 대해서 책임을 면제합니다.<br />
+        가. 천재지변 또는 이에 준하는 불가항력의 상태가 있는 경우<br />
+        나. “회원”의 귀책사유로 “C-SIMS” 이용에 장애가 있는 경우<br />
+        다. “회사” 이외의 타 사업자가 제공하는 서비스의 장애로 인한 경우<br />
+        ② “회사”는 “회원”이나 제삼자가 게재한 정보, 자료, 사실의 신뢰도, 정확성 등의 내용에 관하여 책임을 지지 않습니다.<br />
+        ③ “회사”는 무료로 제공하는 서비스와 관련하여 관련법에 특별한 규정이 없는 한 책임을 지지 않습니다.<br />
+        ④ 본 약관의 적용은 이용계약을 체결한 “회원”에 한하며, 제삼자에 의한 어떠한 배상, 소송 등에 대하여 “회사”는 책임을 면합니다.<br />
+        <br />
+      </div>
+
+      <div class="register_terms-title">
+        <h3 class="register_terms-title_h3">{{'개인정보 수집 및 이용에 대한 안내' | localize}} <span class="register_terms-title_check">{{'(필수)' | localize}}</span></h3>
+        <div class="register_terms-checkbox">
+          <label class="checkbox-label" [class.checkbox-on]="privacy">
+            <input type="checkbox" [(ngModel)]="privacy" formControlName="privacy" class="checkbox-obj" />
+          </label>
+        </div>
+      </div>
+      <div class="register_terms-wrap scroll_box">
+        한국시스템보증(주)는 (이하 ‘회사’)는 정보통신망이용촉진및정보보호등에관한법률(이하 "정보통신망법") 등 정보통신서비스제공자가 준수하여야 할 관련 법령상의 개인정보보호 규정을 준수하며, 관련 법령에 의거한 개인정보처리방침을 정하여 이용자 권익 보호에 최선을 다하고 있습니다. 본 개인정보처리방침은 회사가 제공하는 C-SIMS 서비스(이하 “C-SIMS”)에 적용됩니다.<br />
+        <br />
+        제 1 장 개인정보의 수집 및 이용 목적<br />
+        제 2 장 수집하는 개인정보 항목 및 수집방법<br />
+        제 3 장 수집한 개인정보의 보유 및 이용기간<br />
+        제 4 장 개인정보의 파기절차 및 방법<br />
+        제 5 장 개인정보의 제공 및 공유<br />
+        제 6 장 개인정보 위탁처리 업체<br />
+        제 7 장 개인정보 자동 수집 장치의 설치, 운영 및 거부에 관한 사항<br />
+        제 8 장 개인정보보호를 위한 기술적/관리적 대책<br />
+        제 9 장 이용자 및 법정대리인의 권리와 그 행사방법<br />
+        제 10 장 고지<br />
+        <br />
+        제 1 장. 개인정보의 수집 및 이용 목적<br />
+        <br />
+        개인정보는 생존하는 개인에 관한 정보로서, 회사 회원 개인을 식별할 수 있는 정보(당해 정보만으로는 특정 개인을 식별할 수 없더라도 다른 정보와 용이하게 결합하여 식별할 수 있는 것을 포함)를 말합니다. 회사가 수집한 개인정보는 다음의 목적을 위해 활용합니다.<br />
+        <br />
+        1. 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금 정산<br />
+        콘텐츠 제공, 청구서 등 발송, 본인 인증 및 구매<br />
+        <br />
+        2. 회원 관리<br />
+        회원제 서비스 이용에 따른 본인 확인, 개인식별, 불량회원의 부정 이용 방지와 비인가 사용 방지, 가입 의사 확인, 가입 및 가입횟수 제한, 본 개정 이전에 가입한 14세 미만자의 법정 대리인 본인확인, 분쟁 조정을 위한 기록보존, 불만 처리 등 민원처리, 고지사항 전달<br />
+        <br />
+        제 2 장 수집하는 개인정보 항목 및 수집방법<br />
+        <br />
+        [ 수집하는 개인정보 항목 ]<br />
+        1. 최초 회원가입 시 회원 식별 및 최적화된 서비스 제공을 위해 아래와 같은 정보를 수집합니다.<br />
+        - 필수 항목: 아이디, 비밀번호, 이름/기업명, 이메일 주소<br />
+        2. 서비스 이용이나 기타 사업 처리 과정에서 아래와 같은 정보가 생성되어 수집될 수 있습니다.<br />
+        - 실명, 실명인증 값, 직업, 회사명, 주소, 휴대전화번호, 은행/신용카드 정보 등 결제수단 정보, 서비스 이용 기록, 접속 로그, 쿠키, 접속 IP 정보, 결제 기록, 불량 이용 기록, 이용자 상태 정보, 방문 일시, 기기 고유번호(모바일 이용 시 디바이스 아이디 또는 IMEI)<br />
+        <br />
+        [수집방법]<br />
+        회사는 다음과 같은 방법으로 개인정보를 수집합니다.<br />
+        1. 홈페이지를 통한 회원가입<br />
+        2. 생성정보 수집 툴을 통한 수집<br />
+        3. 서비스 이용에 따른 필수 정보 필요시 또는 이용자의 자발적 제공을 통한 수집<br />
+        <br />
+        제 3 장 수집한 개인정보의 보유 및 이용기간<br />
+        <br />
+        원칙적으로 개인정보 수집 및 이용 목적이 달성된 후에는 해당 정보를 바로 파기합니다.<br />
+        단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다.<br />
+        <br />
+        <br />
+        1. 회원탈퇴 시 보존 개인정보<br />
+        - 보존 항목: 회원이 제공한 이름/기업명, 아이디, 이메일주소 등<br />
+        - 보존 근거: 불량 이용자의 재가입 방지, 명예훼손 등 권리침해 분쟁 및 수사협조<br />
+        - 보존 기간: 회원탈퇴 후 1년<br />
+        <br />
+        2. 상법, 전자상거래등에서의 소비자보호에 관한 법률 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 관계법령에서 정한 일정한 기간 회원 정보를 보관합니다. 이 경우 회사는 보관하는 정보를 그 보관의 목적으로만 이용하며 보존기간은 아래와 같습니다.<br />
+        - 계약 또는 청약철회 등에 관한 기록<br />
+        ㆍ보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률<br />
+        ㆍ보존 기간 : 5년<br />
+        - 대금결제 및 재화 등의 공급에 관한 기록<br />
+        ㆍ보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률<br />
+        ㆍ보존 기간 : 5년<br />
+        - 소비자의 불만 또는 분쟁처리에 관한 기록<br />
+        ㆍ보존 이유 : 전자상거래 등에서의 소비자보호에 관한 법률<br />
+        ㆍ보존 기간 : 3년<br />
+        - 웹사이트 방문 기록 (서비스 이용기록, 접속로그, 접속 IP 정보)<br />
+        ㆍ보존 이유 : 통신비밀보호법<br />
+        ㆍ보존 기간 : 3개월<br />
+        <br />
+        제 4 장 개인정보의 파기절차 및 방법<br />
+        <br />
+        회사는 원칙적으로 개인정보 수집 및 이용목적이 달성되거나, 보유 및 이용 기간이 지난 후에는 해당 정보를 바로 파기합니다. 다만, 회사는 회원이 1년간 이용 기록이 없는 경우 회원에게 사전 통지하고 이후 조치가 없는 경우 개인 정보를 파기합니다.<br />
+        파기절차 및 방법은 다음과 같습니다.<br />
+        <br />
+        1. 파기절차<br />
+        회원이 회원가입 등을 위해 입력한 정보는 목적이 달성된 후 내부 방침 및 기타 관련 법령에 의한 정보보호 사유에 따라(보유 및 이용기간 참조) 일정 기간 저장된 후 파기됩니다.<br />
+        동 개인정보는 법률에 의한 경우가 아니고는 보유되는 목적 이외의 다른 목적으로 이용되지 않습니다.<br />
+        <br />
+        2. 파기방법<br />
+        종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기하고 전자적 파일 형태로 저장된 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하여 삭제합니다.<br />
+        <br />
+        제 5 장 개인정보의 제공 및 공유<br />
+        <br />
+        원칙적으로 회사는 회원의 개인정보를 수집 및 이용목적으로만 이용하며 타인 또는 타기업/기관에 공개하지 않습니다. 다만, 아래의 경우에는 예외로 합니다.<br />
+        <br />
+        1. 이용자가 사전에 동의한 경우<br />
+        - 정보수집 또는 정보제공 이전에 회원에게 비즈니스 파트너가 누구인지, 어떤 정보가 왜 필요한지, 언제까지 어떻게 보호/관리되는지 알리고 동의를 구하는 절차를 거치며, 회원이 동의하지 않는 경우에는 추가 정보를 수집하거나 비즈니스 파트너와 공유하지 않습니다.<br />
+        <br />
+        2. 법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우<br />
+        3. 이용목적에 부합하는 개인정보의 이용 및 제공<br />
+        - 업무상 연락을 위하여 회원의 정보(성명, 주소, 전화번호)를 사용하는 경우<br />
+        - 통계작성, 홍보자료, 학술연구 또는 시장조사를 위하여 필요한 경우로서 특정 고객임을 식별할 수 없는 형태로 제공하는 경우<br />
+        <br />
+        제 6 장 수집한 개인정보의 위탁<br />
+        <br />
+        회사는 서비스 향상을 위해서 아래와 같이 개인정보를 위탁하고 있으며, 관계 법령에 따라 위탁계약 시 개인정보가 안전하게 관리될 수 있도록 필요한 사항을 규정하고 있습니다.<br />
+        <br />
+        제 7 장 개인정보 자동 수집 장치의 설치, 운영 및 거부에 관한 사항<br />
+        <br />
+        회원 개개인에게 개인화되고 맞춤화된 서비스를 제공하기 위해서 회사는 회원의 정보를 저장하고 수시로 불러오는 '쿠키(cookie)'를 사용합니다. 쿠키는 웹사이트를 운영하는데 이용되는 서버가 사용자의 브라우저에 보내는 조그마한 데이터 꾸러미로 회원 컴퓨터의 하드디스크에 저장됩니다.<br />
+        <br />
+        1. 쿠키의 사용 목적<br />
+        - 회원과 비회원의 접속 빈도나 방문 시간 등을 분석, 이용자의 취향과 관심 분야를 파악 및 자취 추적, 각종 이벤트 참여 정도 및 방문 횟수 파악 등을 통한 타깃 마케팅 및 개인 맞춤 서비스 제공<br />
+        <br />
+        2. 쿠키 설정 거부 방법<br />
+        회원은 쿠키 설치에 대한 선택권을 가지고 있습니다. 따라서, 회원은 웹브라우저에서 옵션을 설정함으로써 모든 쿠키를 허용하거나, 쿠키가 저장될 때마다 확인을 거치거나, 아니면 모든 쿠키의 저장을 거부할 수 있습니다.<br />
+        * 설정 방법 예(인터넷 익스플로러의 경우)<br />
+        : 웹 브라우저 상단의 도구 > 인터넷 옵션 > 개인정보 단, 쿠키 설치를 거부하였을 경우 로그인이 필요한 일부 서비스의 이용이 어려울 수 있습니다.<br />
+        <br />
+        제 8 장 개인정보보호를 위한 기술적/관리적 대책<br />
+        <br />
+        [기술적인 대책]<br />
+        1. 회원의 개인정보는 비밀번호에 의해 보호되며, 개인정보 데이터는 별도의 보안 기능을 통해 보호됩니다.<br />
+        2. 회원의 비밀번호는 이용자 및 개인정보취급자가 생일, 전화번호 등 추측하기 쉬운 숫자를 비밀번호로 이용하지 않도록 비밀번호 작성 규칙을 수립하고 이행합니다.<br />
+        3. 회사는 백신 프로그램 및 악성코드 방어 소프트웨어를 이용하여 컴퓨터 바이러스에 의한 피해를 방지하고 있으며, 해당 소프트웨어는 매일 주기적으로 업데이트합니다.<br />
+        4. 회사는 침입차단 기능과 침입탐지 기능을 탑재한 라우터와 L3 스위치 장비를 사용하여 2중으로 네트워크상의 개인정보를 안전하게 보호합니다.<br />
+        5. 회사는 별도의 침입차단시스템(Firewall)을 구축하여 3중 개인정보보호 시스템을 운영합니다.<br />
+        6. 회사는 개인정보를 개인정보보호 시스템에 암호화하여 저장하며, 회사의 정보통신망 외부로 개인정보를 송신하거나 PC에 저장할 경우 암호화하여 저장하도록 시스템을 운영합니다.<br />
+        <br />
+        [관리적인 대책]<br />
+        1. 위와 같은 노력 이외에 회원 스스로 제삼자에게 비밀번호 등이 노출되지 않도록 주의하여야 합니다. 특히 비밀번호 등이 공공장소에 설치한 PC를 통해 유출되지 않도록 항상 유의하여야 합니다. 회원의 ID와 비밀번호는 반드시 본인만 사용하고 비밀번호를 자주 바꾸는 것이 좋습니다.<br />
+        2. 회사는 회사 규정에 별도의 전산관리규정을 마련하여 다음과 같은 사항을 준수합니다.<br />
+        - 개인정보 보호책임자의 지정 등 개인정보보호 조직의 구성, 운영에 관한 사항<br />
+        - 개인정보취급자의 교육에 관한 사항<br />
+        - 개인정보처리시스템의 접속 기록 유지 및 정기적인 확인 감독<br />
+        - 개인정보 출력 및 복사 시의 보호조치<br />
+        - 기타 개인정보 보호를 위해 필요한 사항<br />
+        <br />
+        제 9 장 이용자 및 법정대리인의 권리와 그 행사방법<br />
+        <br />
+        1. 이용자는 언제든지 등록된 자신의 개인정보를 조회하거나 수정할 수 있으며 가입해지를 요청할 수도 있습니다. 이용자의 개인정보 조회/수정을 위해서는 회사 홈페이지에 있는 '정보변경'을, 가입해지 시에는 '정보변경>회원탈퇴'를 클릭하여 본인 확인 절차를 거친 후 조회, 수정 또는 탈퇴할 수 있습니다.<br />
+        2. 개인정보의 조회, 수정, 탈퇴, 처리정지 요구에 대해서는 10일 이내에 조치하여 처리 결과를 통지합니다.<br />
+        [14세 미만 아동의 회원 가입에 대해]<br />
+        ‘C-SIMS‘는 14세 미만 아동의 회원가입은 받지 않습니다.<br />
+        [미성년자 거래 시 철회에 대해]<br />
+        회사는 미성년자와의 거래 시 사전에 법정대리인(부모)의 동의를 구할 의무가 있으며, 법정대리인(부모)의 동의를 얻지 못한 거래는 취소할 수 있습니다. 또한, 미성년자의 법정대리인(부모)이 거래 성립 후 7일 이내에 철회를 요청할 경우, 거래를 철회(환불)합니다.<br />
+        <br />
+        3. 개인정보의 조회, 수정, 탈퇴, 처리정지 요구 접수·처리는 아래와 같습니다.<br />
+        - 전화번호 : 02-2097-9797 | Fax : 02-2097-9777<br />
+        - 주소 : 서울시 송파구 문정로 4길 12 (문정동, 해진빌딩)<br />
+        <br />
+        4. 회사는 이용자의 요청으로 해지 또는 삭제된 개인정보는 "회사가 수집하는 개인정보의 보유 및 이용 기간"에 명시된 바에 따라 처리하고 그 외의 용도로 열람 또는 이용할 수 없도록 처리합니다.<br />
+        <br />
+        제 10 장 고지<br />
+        <br />
+        법령.정책 또는 보안기술의 변경에 따라 내용의 추가.삭제 및 수정이 있을 시에는 변경사항 시행일의 7일 전부터 회사 사이트의 공지사항을 통하여 고지합니다.<br />
+        <br />
+      </div>
+      <div>
+        <span class="register_form-Msg colorRed" *ngIf="submitted && !all">{{'필수 항목들을 모두 동의 하셔야 회원가입을 하실 수 있습니다.' | localize}}</span>
+      </div>
+    </div>
+    <!--// terms -->
+
+    <!-- btn //-->
+    <div class="register_form-btn">
+      <p class="register_form-btn_inbox">
+        <a class="register_form-btn_link2" routerLink="/anonymous">{{'비동의' | localize}}</a>
+      </p>
+      <p class="register_form-btn_inbox">
+        <a class="register_form-btn_link" (click)="onAgree()">{{'동의' | localize}}</a>
+      </p>
+    </div>
+    <!--// btn -->
+
+  </form>
+
+</div>
+
+<div *ngIf="step == 2" class="register_container">
+  <h2 class="register_title"><span class="title_ico type2"></span>{{'가입하기' | localize}}</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <!-- Form //-->
+    <div class="register_form">
+      <!--아이디-->
+      <div class="register_form-wrap">
+        <p class="register_form-item">
+          <input type="text" formControlName="id"
+                 class="register_form-input PAR100"
+                 maxlength="40"
+                 placeholder="{{'아이디(7~40자의 E-mail)' | localize}}" autocomplete="on"/>
+          <span *ngIf="submitted && registerGroup['id'].errors">
+              <span class="register_form-Msg colorRed" *ngIf="registerGroup['id'].errors?.required">{{'아이디를 입력하세요.' | localize}}</span>
+              <span class="register_form-Msg colorRed" *ngIf="registerGroup['id'].errors?.minlength">{{'아이디는 7자 이상 입니다.' | localize}}</span>
+              <span class="register_form-Msg colorRed" *ngIf="!registerGroup['id'].errors?.minlength &&
+               registerGroup['id'].errors?.email">{{'아이디는 이메일 형식 입니다.' | localize}}</span>
+              <span class="register_form-Msg colorRed" *ngIf="!registerGroup['id'].errors?.required && !registerGroup['id'].errors?.minlength &&
+              !registerGroup['id'].errors?.email && registerGroup['id'].errors?.match">{{'아이디 중복확인이 필요합니다.' | localize}}</span>
+            </span>
+          <span class="register_form-Msg colorGreen" *ngIf="!registerGroup['id'].errors && registerGroup['id_correct'].value === registerGroup['id'].value">{{'사용 가능한 아이디 입니다.' | localize}}</span>
+          <a class="register_form-sbtn1" (click)="onCheckDuplication()">{{'중복확인' | localize}}</a>
+          <input type="hidden" formControlName="id_correct" />
+        </p>
+      </div>
+      <!--비밀번호-->
+      <div class="register_form-wrap">
+        <p class="register_form-item">
+          <input type="password" formControlName="pw" class="register_form-input PAR50"
+                 maxlength="50"
+                 placeholder="{{'비밀번호(9~50자, 특수, 영대, 숫자 1개 포함)' | localize}}"  />
+          <span *ngIf="!registerGroup['pw'].errors" class="register_form-Msg colorGreen">{{'올바른 비밀번호 입니다.' | localize}}</span>
+          <span *ngIf="submitted && registerGroup['pw'].errors">
+              <span class="register_form-Msg colorRed" *ngIf="registerGroup['pw'].errors?.required">{{'비밀번호를 입력하세요.' | localize}}</span>
+              <span class="register_form-Msg colorRed" *ngIf="registerGroup['pw'].errors?.minlength">{{'비밀번호는 9자 이상 입니다.' | localize}}</span>
+              <span class="register_form-Msg colorRed"
+                    *ngIf="!registerGroup['pw'].errors?.required && !registerGroup['pw'].errors?.minlength &&
+                    registerGroup['pw'].errors?.pattern">{{'비밀번호는 하나 이상의 대소문자, 숫자, 특수문자를 포함하여야 합니다.' | localize}}</span>
+            </span>
+          <span class="register_form-ico type2 on"></span>
+        </p>
+      </div>
+      <!--비밀번호 확인-->
+      <div class="register_form-wrap">
+        <p class="register_form-item">
+          <input type="password" formControlName="pw_repeat" class="register_form-input PAR50"
+                 maxlength="50"
+                 placeholder="{{'비밀번호 재확인' | localize}}"  />
+          <span *ngIf="submitted">
+              <span class="register_form-Msg colorRed" *ngIf="registerGroup['pw_repeat'].errors?.required">{{'비밀번호 확인을 입력하세요.' | localize}}</span>
+              <span class="register_form-Msg colorRed" *ngIf="!registerGroup['pw_repeat'].errors?.required &&
+              registerGroup['pw_repeat'].errors?.match">{{'비밀번호와 비밀번호 재확인이 일치하지 않습니다.' | localize}}</span>
+            </span>
+          <span class="register_form-ico type3"></span>
+        </p>
+      </div>
+
+      <div class="register_form-wrap MAT20">
+        <p class="register_form-item">
+          <input type="text" formControlName="nm"
+                 class="register_form-input"
+                 maxlength="50"
+                 placeholder="{{'이름(2~50자)' | localize}}"/>
+          <span *ngIf="submitted">
+            <span class="register_form-Msg colorRed" *ngIf="registerGroup['nm'].errors?.required">{{'이름을 입력하세요.' | localize}}</span>
+            <span class="register_form-Msg colorRed" *ngIf="registerGroup['nm'].errors?.minlength">{{'이름은 2자 이상 입니다.' | localize}}</span>
+          </span>
+        </p>
+      </div>
+
+      <div class="register_form-wrap">
+        <p class="register_form-item">
+          <input type="text" formControlName="phone"
+                 class="register_form-input"
+                 maxlength="30"
+                 placeholder="{{'휴대폰번호(10~30자)' | localize}}"  appPhoneOnly />
+          <span *ngIf="submitted">
+            <span class="register_form-Msg colorRed" *ngIf="registerGroup['phone'].errors?.required">{{'휴대폰번호를 입력하세요.' | localize}}</span>
+            <span class="register_form-Msg colorRed" *ngIf="registerGroup['phone'].errors?.minlength">{{'휴대폰번호는 10자 이상 입니다.' | localize}}</span>
+          </span>
+        </p>
+      </div>
+
+      <div class="register_form-wrap">
+        <p class="register_form-item">
+          <input type="text" formControlName="comp_nm"
+                 class="register_form-input"
+                 maxlength="50"
+                 placeholder="{{'회사(2~50자)' | localize}}"  />
+          <span *ngIf="submitted">
+            <span class="register_form-Msg colorRed" *ngIf="registerGroup['comp_nm'].errors?.required">{{'회사를 입력하세요.' | localize}}</span>
+            <span class="register_form-Msg colorRed" *ngIf="registerGroup['comp_nm'].errors?.minlength">{{'회사는 2자 이상 입니다.' | localize}}</span>
+          </span>
+        </p>
+      </div>
+
+      <div class="register_form-wrap">
+        <p class="register_form-item wd110">
+          <span class="register_form-text BDR">{{'국가' | localize}}</span>
+        </p>
+        <p class="register_form-item wd290">
+						<span class="register_select-box">
+							<label for="register-country">{{country}}</label>
+							<select formControlName="nat_cd" class="register_select" id="register-country">
+								<option *ngFor="let country of countries" [value]="country.value">{{country.label}}</option>
+							</select>
+						</span>
+        </p>
+      </div>
+
+    </div>
+    <!--// Form -->
+
+    <!-- btn //-->
+    <div class="register_form-btn">
+      <p class="register_form-btn_inbox">
+        <a class="register_form-btn_link2" routerLink="/anonymous">{{'취소' | localize}}</a>
+      </p>
+      <p class="register_form-btn_inbox">
+        <a class="register_form-btn_link" (click)="onSubmit()">{{'가입하기' | localize}}</a>
+      </p>
+    </div>
+    <!--// btn -->
+
+  </form>
+</div>
+
+<div *ngIf="step == 3" class="register_container">
+  <h2 class="register_title"><span class="title_ico type2"></span>{{'가입 완료' | localize}}</h2>
+
+  <div class="register_info-text">{{'회원가입을 축하드립니다.' | localize}}<br />
+    {{'관리자의 승인 후 정상적인 사용이 가능합니다.' | localize}}
+  </div>
+
+  <div class="register_find">
+    <h3 class="register_find-title_h3 MAT25">{{'가입하신 아이디는 아래와 같습니다.' | localize}}</h3>
+    <div class="register_find-id">
+      {{registerGroup['id'].value}}
+    </div>
+  </div>
+
+  <!-- btn //-->
+  <div class="register_form-btn">
+    <a class="register_form-btn_link" routerLink="/anonymous/login">{{'확인' | localize}}</a>
+  </div>
+  <!--// btn -->
+
+</div>

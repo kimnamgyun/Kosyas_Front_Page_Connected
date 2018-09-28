@@ -1,0 +1,146 @@
+<!-- title //-->
+<div class="title_wrap">
+  <app-breadcrumb></app-breadcrumb>
+</div>
+<!--// title -->
+
+
+
+
+
+  <div class="contents-box">
+
+    <div class="col-1">
+      <div class="contents-inner">
+        <h2 class="title-h2">
+          <a *ngIf="step == 1">
+            <span class="tab-btn is-active" (click)="onTab(1)">{{'로그인' | localize}}</span>
+            <span class="tab-btn" (click)="onTab(2)">{{'행위 추척' | localize}}</span>
+          </a>
+          <a *ngIf="step == 2">
+            <span class="tab-btn" (click)="onTab(1)">{{'로그인' | localize}}</span>
+            <span class="tab-btn is-active" (click)="onTab(2)">{{'행위 추척' | localize}}</span>
+          </a>
+        </h2>
+
+
+        <div class="contents-area">
+          <form [formGroup]="logForm">
+
+          <!-- Search Box //-->
+          <div class="searchbox">
+            <!-- Search Date //-->
+            <app-date-period [disabledButtons]="true" #dateperiod></app-date-period>
+            <!--// Search Date -->
+
+            <p *ngIf="step == 1" class="searchbox-item wd100">
+              <span class="default_select-box">
+                <label>{{logFormGroup['actionLogin'].value | label: actionLogins}}</label>
+                <select formControlName="actionLogin" class="default_select">
+                    <option *ngFor="let actionLogin of actionLogins" [value]="actionLogin.value">{{actionLogin.label}}</option>
+                </select>
+              </span>
+            </p>
+            <p *ngIf="step == 2" class="searchbox-item wd120">
+              <span class="default_select-box">
+                <label>{{logFormGroup['typ'].value | label: types}}</label>
+                <select formControlName="typ" class="default_select">
+                    <option *ngFor="let typ of types" [value]="typ.value">{{typ.label}}</option>
+                </select>
+              </span>
+            </p>
+            <p *ngIf="step == 2" class="searchbox-item wd80">
+              <span class="default_select-box">
+                <label>{{logFormGroup['ac'].value | label: actions}}</label>
+                <select formControlName="ac" class="default_select">
+                    <option *ngFor="let ac of actions" [value]="ac.value">{{ac.label}}</option>
+                </select>
+              </span>
+            </p>
+            <p class="searchbox-item wdP20">
+              <input type="text" class="searchbox-input" formControlName="keyword" placeholder="{{'아이디 검색' | localize}}"/>
+            </p>
+            <a class="btn-type2 MAL10" (click)="onClick()"><span class="btn-ico ico-search01">icon</span>{{'검색' | localize}}</a>
+          </div>
+          <!--// Search Box -->
+          <!-- contents-wrap //-->
+          <div *ngIf="step == 1"  class="contents-wrap">
+          <!-- list table //-->
+          <div class="list_table">
+            <table>
+              <colgroup>
+                <col width="20%" />
+                <col width="20%" />
+                <col width="*" />
+              </colgroup>
+              <thead>
+              <tr>
+                <th>{{'시간' | localize}}</th>
+                <th>{{'아이디' | localize}}</th>
+                <th>{{'내용' | localize}}</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of items; let i = index">
+                <td>{{item.reg_date | date: 'yyyy-MM-dd hh:mm:ss'}}</td>
+                <td>{{item.id}}</td>
+                <td>{{item.contents}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--// list table -->
+
+          <!-- pagination //-->
+          <app-pagination [page]="page" [pageSize]="pageSize" [rowsSize]="rowsSize" [totalRows]="totalRows"
+                          (changePage)="paginationHandler($event)"></app-pagination>
+          <!--// pagination -->
+
+        </div>
+
+
+
+
+        <!-- contents-wrap //-->
+        <div *ngIf="step == 2" class="contents-wrap">
+        <!-- list table //-->
+        <div class="list_table">
+          <table>
+            <colgroup>
+              <col width="20%" />
+              <col width="20%" />
+              <col width="*" />
+            </colgroup>
+            <thead>
+            <tr>
+              <th>{{'시간' | localize}}</th>
+              <th>{{'아이디' | localize}}</th>
+              <th>{{'내용' | localize}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of items; let i = index">
+              <td>{{item.reg_date | date: 'yyyy-MM-dd hh:mm:ss'}}</td>
+              <td>{{item.id}}</td>
+              <td>{{item.contents}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!--// list table -->
+
+        <!-- pagination //-->
+        <app-pagination [page]="page" [pageSize]="pageSize" [rowsSize]="rowsSize" [totalRows]="totalRows"
+                        (changePage)="paginationHandler($event)"></app-pagination>
+        <!--// pagination -->
+
+      </div>
+
+      </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+

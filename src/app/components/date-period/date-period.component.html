@@ -1,0 +1,21 @@
+<div class="search_date alignR" [class.disabled-buttons]="disabledButtons">
+  <div class="calendar-box">
+    <label>{{'시작일' | localize}} : </label>
+    <input class="calendar-input" matInput [matDatepicker]="startPicker" [ngModel]="startDate | date:'yyyy-MM-dd'"
+           (click)="startPicker.open()"
+           (dateChange)="onStartDateChange($event)" readonly>
+    <mat-datepicker-toggle [for]="startPicker"></mat-datepicker-toggle>
+    <mat-datepicker #startPicker></mat-datepicker>
+    <span>~</span>
+    <label>{{'종료일' | localize}} : </label>
+    <input class="calendar-input" matInput [matDatepicker]="endPicker" [ngModel]="endDate | date:'yyyy-MM-dd'"
+           (click)="endPicker.open()"
+           (dateChange)="onEndDateChange($event)" readonly>
+    <mat-datepicker-toggle [for]="endPicker"></mat-datepicker-toggle>
+    <mat-datepicker #endPicker ></mat-datepicker>
+  </div>
+  <div *ngIf="!disabledButtons" class="search_date-box">
+    <a *ngFor="let item of items" class="btn-type1" [class.active]="isActive(item.value, item.unit)" (click)="select(item.value, item.unit)">{{item.label}}</a>
+    <a *ngIf="!disabledSearchButton" class="btn-type2 MAL20" (click)="onSearch()"><span class="btn-ico ico-search01">icon</span>{{'검색' | localize}}</a>
+  </div>
+</div>

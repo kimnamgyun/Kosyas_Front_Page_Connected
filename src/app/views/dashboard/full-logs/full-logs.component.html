@@ -1,0 +1,96 @@
+<!-- title //-->
+<div class="title_wrap">
+  <app-breadcrumb></app-breadcrumb>
+</div>
+<!--// title -->
+
+<!-- contents-wrap //-->
+<div class="contents-wrap">
+
+  <!-- Search Date //-->
+  <app-date-period (search)="onSearch($event)" #dateperiod></app-date-period>
+  <!--// Search Date -->
+
+
+  <!-- 01//-->
+  <div class="contents-box">
+
+    <div class="col-1">
+      <div class="contents-inner">
+
+        <h2 class="title-h2">{{'시간별 전체로그' | localize}}</h2>
+        <div class="contents-area">
+          <p class=""><canvas id="canvas"  #canvas>{{ chart }}</canvas></p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!--// 01-->
+
+
+  <!-- 02 //-->
+  <div class="contents-box">
+
+    <div class="col-1">
+      <div class="contents-inner">
+
+        <h2 class="title-h2">{{'전체로그' | localize}}<a href="{{data.url}}" class="btn-type2"><span class="btn-ico ico-link">icon</span>Kibana</a></h2>
+        <div class="contents-area">
+
+
+          <!-- items table //-->
+          <div class="list_table">
+            <table>
+              <colgroup>
+                <col width="230px" />
+                <col width="*" />
+              </colgroup>
+              <thead>
+              <tr>
+                <th>
+                  Time
+                  <!--<p class="th_sort">
+                    <a href="#none"><img src="/assets/images/btn_sort01.png" alt="ascending" /></a>
+                    <a href="#none"><img src="/assets/images/btn_sort02.png" alt="descending" /></a>
+                  </p>-->
+                </th>
+                <th>_source</th>
+              </tr>
+              </thead>
+
+              <tbody   #list>
+              <tr  *ngFor="let content of items;">
+                <td class="alignL">{{content._source['@timestamp']}}</td>
+                <td class="alignL td_desc">
+                  <p class="td_desc-list">
+                    <span  class="td_desc-item"><em class="td_desc-item">_index :</em>{{content._index}}</span>
+                    <span  class="td_desc-item" *ngFor="let key of getKeys(content._source)">
+                        <em class="td_desc-item">{{key}} :</em>{{content._source[key]}}
+                    </span>
+                  </p>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--// items table -->
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+  <!--// 02 -->
+
+
+
+
+
+</div>
+<!--// contents-wrap -->

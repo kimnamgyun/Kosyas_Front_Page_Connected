@@ -1,0 +1,22 @@
+/*Pagination*/
+.pagination {margin-top:40px; position:relative;}
+.pagination-list {text-align:center; font-size:0;}
+.pagination-list li {display:inline-block; margin-left:5px; cursor: pointer;}
+.pagination-list li:first-child {margin-left:0;}
+.pagination-prev {margin-right:25px;}
+.pagination-next {margin-left:30px !important;}
+.pagination-list li img{margin-top:-4px;}
+.pagination-list li a{display:block; font-size:14px; color:#777; min-width:40px; line-height:40px;border:1px solid #d6d6d6;  -webkit-box-sizing:border-box; box-sizing:border-box; background:#fff;}
+.pagination-list li a:hover,
+.pagination-list li a:focus,
+.pagination-list li a.on {color:#fff; background:#1f2458; border-color:#1f2458;}
+.pagination-list .number a.on {cursor: default}
+
+.pagination-first a:hover,
+.pagination-first a.on{background:#fff !important;}
+.pagination-prev a:hover,
+.pagination-prev a.on{background:#fff !important;}
+.pagination-next a:hover,
+.pagination-next a.on{background:#fff !important;}
+.pagination-last a:hover,
+.pagination-last a.on{background:#fff !important;}

@@ -1,0 +1,119 @@
+<div class="wrap">
+
+
+  <!-- header //-->
+  <div class="header">
+
+    <!-- my account select //-->
+    <div class="my_account noselect" tabindex="0"
+         (clickOutside)="onClickOutsideAccountInfo()"
+         (click)="onToggleAccountInfo()">
+      <div class="my_account-box" [class.is-active]="openedAccountInfo">
+
+        <p class="my_account-thumb"><img src="/assets/images/common/ico_mypage.png" alt="my account" /></p>
+        <p class="my_account-email">{{user.id}}</p>
+
+        <div class="my_account-info">
+          <div class="arrow-up"></div>
+          <ul>
+            <li class="my_account-info_item">{{endDate}}</li>
+            <li class="my_account-info_item" routerLink="/user/user-info">{{'나의 정보' | localize}}</li>
+            <li class="my_account-info_item" (click)="onLogout()">{{'로그아웃' | localize}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- my account select //-->
+
+    <!-- Notification //-->
+    <div class="top_notification noselect">
+      <div class="top_notification-box" (click)="onShowAlarm($event)">
+        <p *ngIf="alarm.count > 0" class="top_notification-label">{{alarm.count}}</p>
+        <div *ngIf="isShowAlarm" class="top_notification-info" (click)="onCloseAlarm($event, alarm.seq)">
+          <p class="top_notification-msg">
+            <em>[[{{alarm.str_time}}]] [{{alarm.rule_name}}]</em> {{'에서' | localize}}
+            {{'총' | localize}} <strong>[{{alarm.match}}]</strong> {{'건의 일치된 결과가 발견되었습니다.' | localize}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Notification //-->
+
+    <!-- language select //-->
+    <div class="language noselect"
+         (clickOutside)="onClickOutsideLanguage()"
+         (click)="onToggleLanguage()">
+      <div class="language-box" [class.is-active]="openedLanguage">
+        <p class="language-text">{{language}}</p>
+        <ul class="language-country">
+          <li class="language-country_item"><a (click)="setLanguage('ko-KR')">KOREAN</a></li>
+          <li class="language-country_item"><a (click)="setLanguage('en-US')">ENGLISH</a></li>
+          <li class="language-country_item"><a (click)="setLanguage('fr-FR')">FRENCH</a></li>
+        </ul>
+      </div>
+    </div>
+    <!--// language select -->
+
+  </div>
+  <!--// header -->
+
+  <!-- Sidebar //-->
+  <div
+    [class.js-close]="minimizedMenu"
+    class="sidebar">
+    <div class="sidebar-wrap">
+      <div class="sidebar-top">
+        <h1 class="top_logo"><a routerLink="/"><img src="/assets/images/common/top_logo.png" alt="C-SIMS" /></a></h1>
+        <a class="menu_btn" (click)="minimizedMenu = !minimizedMenu"></a>
+      </div>
+
+      <!-- GNB //-->
+      <div class="gnb">
+        <ul class="gnb-list noselect">
+          <li *ngFor="let depths1 of menuData; let i = index"
+              [class.is-active]="isActiveDepths1(depths1)"
+              class="gnb-item">
+            <a class="gnb-link"
+               (click)="onSelectDepths1(depths1)">
+              <i [class]="'gnb-ico nth-' + i"></i>
+              <span class="gnb-text">{{depths1.data['title']}}</span>
+            </a>
+            <ul [class.is-active]="openedDetphs1(depths1)"
+                class="gnb_sub">
+              <li *ngFor="let depths2 of getRoutes(depths1)"
+                  routerLinkActive="is-active"
+                  class="gnb_sub-item">
+                <a routerLink="/{{depths1.path}}/{{depths2.path}}"
+                   (click)="onSelectDepths2(depths1, depths2)"
+                   class="gnb_sub-link"><span>{{depths2.data['title']}}</span></a>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!--// GNB -->
+    </div>
+  </div>
+  <!--// Sidebar -->
+
+
+  <!-- container //-->
+  <div
+    [class.js-close]="minimizedMenu"
+    class="container">
+
+    <router-outlet decription="컨텐츠 영역"></router-outlet>
+
+    <!-- footer //-->
+    <div class="footer">
+      <div class="footer_wrap">
+        <h2><img src="/assets/images/common/footer_logo.png" alt="KOSYAS" /></h2>
+        <p class="footer-info">{{'(05807) 서울특별시 송파구 문정로4길 12 해진빌딩 4층' | localize}}</p>
+        <p class="footer-copy">{{'COPYRIGHT © 2018 KOSYAS.  ALL RIGHTS RESERVED.' | localize}}</p>
+      </div>
+    </div>
+    <!--// footer -->
+
+  </div>
+  <!--// container -->
+
+
+</div>

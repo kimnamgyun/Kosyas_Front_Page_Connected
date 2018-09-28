@@ -1,0 +1,72 @@
+<!-- title //-->
+<div class="title_wrap">
+  <app-breadcrumb></app-breadcrumb>
+</div>
+<!--// title -->
+
+
+<!-- contents-wrap //-->
+<div class="contents-wrap">
+  <form [formGroup]="systemForm" (ngSubmit)="onSubmit()">
+
+  <div class="contents-box">
+
+    <div class="col-1">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'시스템 등록' | localize}}</h2>
+        <div class="contents-area">
+
+          <!-- write table //-->
+          <div class="write_table">
+            <table>
+              <colgroup>
+                <col width="95px" />
+                <col width="*" />
+                <col width="80px" />
+                <col width="100px" />
+              </colgroup>
+              <tbody formArrayName="items">
+                <tr [formGroupName]="i" *ngFor="let item of systems; let i = index">
+                    <th><label class="write_form-label">{{item.nm}}</label></th>
+                    <td class="write_form-item">
+                      <input type="text"
+                             class="write_form-input"
+                             formControlName="addr"
+                             placeholder="{{'시스템 연결주소' | localize}}"
+                             [(ngModel)]="item.addr"
+                             maxlength="500"/>
+                    </td>
+                    <th class="PAL40"><label class="write_form-label">{{'포트' | localize}}</label></th>
+                    <td class="write_form-item">
+                      <input type="text"
+                             class="write_form-input"
+                             formControlName="port"
+                             placeholder="{{'포트' | localize}}"
+                             [(ngModel)]="item.port"
+                             maxlength="5"
+                             appNumbersOnly />
+                    </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <!--// write table -->
+
+
+        </div>
+
+        <!-- Btn //-->
+        <div class="btn-wrap">
+          <input type="submit" class="btn-type2" value="등록"/>
+          <a class="btn-type3" (click)="clearModel()"><span class="btn-ico ico-cancel">icon</span>{{'초기화' | localize}}</a>
+        </div>
+        <!--// Btn -->
+
+      </div>
+    </div>
+  </div>
+
+  </form>
+</div>
+<!--// contents-wrap -->

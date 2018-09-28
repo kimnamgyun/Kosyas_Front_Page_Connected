@@ -1,0 +1,95 @@
+$images: '../../../assets/images';
+
+body,
+.wrap {background:#efefef; min-width:1280px; position:relative;}
+
+
+
+/*header*/
+.header {-webkit-box-sizing: border-box; box-sizing: border-box; border-bottom:1px solid #d9d9d9; height:60px; width:100%; min-width:1280px; position:fixed; background-color:#fff; z-index:100;}
+
+.my_account {position:absolute; top:10px; right:220px;}
+.my_account-box {border-radius:40px; background:#efefef; height:40px; display:inline-block; position:relative; padding:0 40px 0 50px; cursor:pointer;z-index:101;}
+.my_account-thumb {position:absolute;border-radius:40px; width:40px; height:40px; background:#252525; left:0; top:0;}
+.my_account-email {line-height:40px; font-size:14px; color:#666; letter-spacing:-0.05em;}
+.my_account-email:after {content:''; display:block; width:40px; height:40px; background:url($images + '/common/ico_arrow02.png') center 50% no-repeat; position:absolute; right:0; top:0;-webkit-transition: all 0.5s; transition: all 0.5s;}
+
+.my_account-info {position:absolute; width:200px; -webkit-box-sizing: border-box; box-sizing: border-box; right:0; top:40px;
+  cursor:default;overflow:hidden; max-height:0;-webkit-transition: all 0.2s; transition: all 0.2s;}
+.arrow-up {content:''; display:block; position:relative;background:url($images + '/common/ico_mypage_arrow.png') 0 0 no-repeat; width:14px; height:10px; left:50%; margin-left:-7px;}
+.my_account-info ul {padding:10px 15px;background:#252525;}
+.my_account-info_item {line-height:35px; background:url($images + '/common/ico_myaccount.png') 0 50% no-repeat; color:#999; padding-left:25px;}
+.my_account-info_item:nth-child(1) {background-position:0 8px;}
+.my_account-info_item:nth-child(2) {background-position:0 -27px;}
+.my_account-info_item:nth-child(3) {background-position:0 -62px; color:#f7bd16;}
+.my_account-info_item:nth-child(2):hover, .my_account-info_item:nth-child(3):hover {background-color:#353535;cursor: pointer;}
+
+.my_account-box.is-active .my_account-info{ max-height:500px; -webkit-transition: all 0.5s; transition: all 0.5s;}
+.my_account-box.is-active .my_account-email:after {-webkit-transform: rotate(180deg); -ms-transform: rotate(180deg); transform: rotate(180deg);}
+
+/*Header Notification 20180828*/
+.top_notification {position:absolute; top:10px; right:170px;z-index:201;}
+.top_notification-box {border-radius:40px; background:#252525 url($images + '/common/ico_bell.png') center center no-repeat; height:40px; width:40px; display:block; position:relative; cursor:pointer;}
+.top_notification-label {border-radius:20px; background:#ff0000; display:inline-block; position:absolute; left:50%; top:-5px; font-size:12px; color:#fff; font-weight:700; line-height:20px; height:20px; padding:0 5px; text-align:center; min-width:20px;}
+.top_notification-info {position:absolute; width:200px; background:#252525;-webkit-box-sizing: border-box; box-sizing: border-box; left:50%;right:0; top:50px; padding:10px 15px; margin-left:-100px;}
+.top_notification-info:before {content:''; display:block; position:absolute;background:url($images + '/common/ico_mypage_arrow.png') 0 0 no-repeat; width:14px; height:10px; top:-10px; left:50%; margin-left:-7px;}
+.top_notification-msg {font-size:14px; word-break:break-all; color:#ccc; letter-spacing:-0.05em;}
+.top_notification-msg em {color:#f7bd16; font-style:normal;}
+.top_notification-msg strong{color:#fff;}
+
+/*Side bar*/
+.sidebar {width:250px; height:100%; position:fixed; background:#333; z-index:200; top:0; left:0; overflow:auto; padding-bottom:80px;-webkit-box-sizing: border-box; box-sizing: border-box;}
+.sidebar-wrap {position:relative;}
+.sidebar:before {content:''; display:block; height:100%; background:#252525; width:60px; position:absolute;}
+
+.sidebar-top {background:#f7bd16; position:relative; text-align:center;height:60px;}
+.menu_btn {position:fixed; width:40px; height:40px; display:block; background:url($images + '/common/menu_close.png') 0 0 no-repeat; top:10px; left:280px; }
+
+
+.sidebar.js-close {width:60px; overflow:hidden !important;}
+.sidebar.js-close .top_logo {display:none;}
+.sidebar.js-close .menu_btn {position:fixed; width:40px; height:40px; display:block; background:url($images + '/common/menu_open.png') 0 0 no-repeat; top:10px; left:10px; }
+.sidebar.js-close .gnb-text {display:none;}
+.sidebar.js-close .gnb-item.is-active .gnb_sub{display:none;}
+
+/*GNB*/
+.gnb {}
+.gnb-list {}
+.gnb-item {color:#fff;}
+.gnb-link {display:block; font-size:16px;}
+.gnb-item.is-active .gnb-link,
+.gnb-link:hover {color:#f7bd16;}
+.gnb-link i {font-style:normal; display:inline-block; width:60px; line-height:60px; height:60px;}
+.gnb-item.is-active i,
+.gnb-link:hover i {background-position:0 -60px;}
+.gnb-ico.nth-0 {background-image:url($images + '/common/ico_gnb01.png');}
+.gnb-ico.nth-1 {background-image:url($images + '/common/ico_gnb02.png');}
+.gnb-ico.nth-2 {background-image:url($images + '/common/ico_gnb03.png');}
+.gnb-ico.nth-3 {background-image:url($images + '/common/ico_gnb04.png');}
+.gnb-ico.nth-4 {background-image:url($images + '/common/ico_gnb05.png');}
+.gnb-ico.nth-5 {background-image:url($images + '/common/ico_gnb06.png');}
+
+.gnb-text {margin-left:14px; display:inline-block; line-height:60px;}
+
+.gnb-item.is-active .gnb_sub {display:block;}
+.gnb_sub {padding-left:60px; background:#252525; max-height:0; overflow:hidden; position:relative;
+  -webkit-transition: all 0.2s; transition: all 0.2s;}
+.gnb_sub-item {padding-left:15px; line-height:35px; color:#656565; font-size:14px;}
+.gnb_sub-link {display:block; padding-right:20px;}
+.gnb_sub-link span {display:block;}
+.gnb_sub-item.is-active .gnb_sub-link span,
+.gnb_sub-link:hover span {display:block; background:url($images + '/common/ico_arrow01.png') right 50% no-repeat; color:#f7bd16;}
+
+.gnb-item ul.is-active {max-height: 500px;-webkit-transition: max-height 0.5s; transition: max-height 0.5s; border-top:1px solid #444; border-bottom:1px solid #444;}
+
+/*footer*/
+.footer {background:#252525; border-top:1px solid #000;  z-index:300; margin-top:30px;}
+.footer_wrap {position:relative; padding:20px 0 20px 30px;font-size:12px; color:#999;}
+.footer-info {position:absolute; left:180px; top:18px;}
+.footer-copy {position:absolute; left:180px; top:35px;}
+
+
+/*컨텐츠 영역*/
+.container {padding:60px 0 0 250px;}
+
+.container.js-close {padding:60px 0 0 60px;}

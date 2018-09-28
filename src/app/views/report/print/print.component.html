@@ -1,0 +1,84 @@
+<!-- title //-->
+<div class="title_wrap">
+  <app-breadcrumb></app-breadcrumb>
+</div>
+<!--// title -->
+
+
+<!-- contents-wrap //-->
+<div class="contents-wrap">
+
+
+  <div class="contents-box">
+
+    <!--보고서 기간 선택-->
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'보고서 기간 선택' | localize}}</h2>
+        <div class="contents-area">
+
+
+          <!-- Search Date //-->
+          <app-date-period [disabledSearchButton]="true" (search)="onSearch($event)" #dateperiod></app-date-period>
+          <!--// Search Date -->
+
+
+        </div>
+      </div>
+    </div>
+    <!--보고서 기간 선택-->
+
+    <!--보고서 항목 선택-->
+    <div class="col-2">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'보고서 항목 선택' | localize}}</h2>
+        <div class="contents-area">
+          <!-- list table //-->
+          <div class="list_table">
+            <table>
+              <colgroup>
+                <col width="*"  />
+                <col width="120"  />
+              </colgroup>
+              <thead>
+              <tr>
+                <th>{{'대시보드 항목' | localize}}</th>
+                <th>{{'인쇄' | localize}}</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="alignL">{{'표지' | localize}}</td>
+                  <td class=""><a (click)="openPop('cover')" class="btn-type2"><span class="btn-ico ico-check02">icon</span>{{'인쇄' | localize}}</a></td>
+                </tr>
+                <tr>
+                  <td class="alignL">{{'개요' | localize}}</td>
+                  <td class=""><a (click)="openPop('overview')" class="btn-type2"><span class="btn-ico ico-check02">icon</span>{{'인쇄' | localize}}</a></td>
+                </tr>
+                <tr>
+                  <td class="alignL">{{'침입탐지' | localize}}</td>
+                  <td class=""><a (click)="openPop('intrusion')" class="btn-type2"><span class="btn-ico ico-check02">icon</span>{{'인쇄' | localize}}</a></td>
+                </tr>
+                <tr>
+                  <td class="alignL">{{'취약점' | localize}}</td>
+                  <td class=""><a (click)="openPop('vulnerability')" class="btn-type2"><span class="btn-ico ico-check02">icon</span>{{'인쇄' | localize}}</a></td>
+                </tr>
+                <tr>
+                  <td class="alignL">{{'시스템' | localize}}</td>
+                  <td class=""><a (click)="openPop('system')" class="btn-type2"><span class="btn-ico ico-check02">icon</span>{{'인쇄' | localize}}</a></td>
+                </tr>
+                <tr>
+                  <td class="alignL">{{'전체로그' | localize}}</td>
+                  <td class=""><a (click)="openPop('full-logs')" class="btn-type2"><span class="btn-ico ico-check02">icon</span>{{'인쇄' | localize}}</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--// list table -->
+        </div>
+      </div>
+    </div>
+    <!--보고서 항목 선택-->
+
+  </div>
+</div>

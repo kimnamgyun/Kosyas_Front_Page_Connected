@@ -1,0 +1,126 @@
+<!-- title //-->
+<div class="title_wrap">
+  <app-breadcrumb></app-breadcrumb>
+</div>
+<!--// title -->
+
+
+<!-- contents-wrap //-->
+<div class="contents-wrap">
+
+
+  <div class="contents-box">
+    <div class="col-1">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'시스템 상태' | localize}}<a href="{{data.url}}" target="_blank" class="btn-type2"><span class="btn-ico ico-link">icon</span>Clebro</a></h2>
+        <div class="contents-area">
+
+          <div class="sys_card">
+            <ul class="sys_card-wrap">
+              <li class="sys_card-list">
+                <div class="sys_card-item">
+                  <p class="sys_card-icon nth-1"></p>
+                  <p class="sys_card-data">Elasticsearch</p>
+                  <p class="sys_card-text">Content</p>
+                  <p class="sys_card-progress">
+                    <span class="sys_card-progress_data" style="width:0%;"></span>
+                  </p>
+                </div>
+              </li>
+
+              <li class="sys_card-list">
+                <div class="sys_card-item">
+                  <p class="sys_card-icon nth-2"></p>
+                  <p class="sys_card-data">{{node}}</p>
+                  <p class="sys_card-text">Node</p>
+                  <p class="sys_card-progress">
+                    <span class="sys_card-progress_data"  style="width:0%;"></span>
+                  </p>
+                </div>
+              </li>
+
+              <li class="sys_card-list">
+                <div class="sys_card-item">
+                  <p class="sys_card-icon nth-3"></p>
+                  <p class="sys_card-data">{{indices}}</p>
+                  <p class="sys_card-text">Indices</p>
+                  <p class="sys_card-progress">
+                    <span class="sys_card-progress_data"  style="width:0%;"></span>
+                  </p>
+                </div>
+              </li>
+
+              <li class="sys_card-list">
+                <div class="sys_card-item">
+                  <p class="sys_card-icon nth-4"></p>
+                  <p class="sys_card-data">{{shards}}</p>
+                  <p class="sys_card-text">Shards</p>
+                  <p class="sys_card-progress">
+                    <span class="sys_card-progress_data"  style="width:0%;"></span>
+                  </p>
+                </div>
+              </li>
+
+              <li class="sys_card-list">
+                <div class="sys_card-item">
+                  <p class="sys_card-icon nth-5"></p>
+                  <p class="sys_card-data">{{docs}}</p>
+                  <p class="sys_card-text">Docs</p>
+                  <p class="sys_card-progress">
+                    <span class="sys_card-progress_data" style="width:0%;"></span>
+                  </p>
+                </div>
+              </li>
+
+              <li class="sys_card-list">
+                <div class="sys_card-item">
+                  <p class="sys_card-icon nth-6"></p>
+                  <p class="sys_card-data">{{disk}}</p>
+                  <p class="sys_card-text">Disk</p>
+                  <p class="sys_card-progress">
+                    <span class="sys_card-progress_data"  [style.width.%]="disk_percent"></span>
+                  </p>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <form [formGroup]="indexForm">
+  <div class="contents-box">
+    <div class="col-1">
+      <div class="contents-inner">
+        <h2 class="title-h2">{{'인덱스 관리' | localize}}</h2>
+        <div class="contents-area alignL PAT50">
+
+									<span class="default_select-box wd500">
+										<label for="item">{{item}}</label>
+
+                                          <select class="default_select" formControlName="item" id="item">
+                                              <option *ngFor="let item of items;" [value]="item">{{item}}</option>
+                                          </select>
+
+									</span>
+          <a class="btn-type2"  (click)="onDelete()"><span class="btn-ico ico-del01">icon</span>{{'선택 삭제' | localize}}</a>
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  </form>
+
+</div>
