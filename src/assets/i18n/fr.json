@@ -1,0 +1,66 @@
+{
+  "title": "KOSYAS Cloud Service Rendez votre sécurité système et Web plus facile! Plus rapide!",
+
+  "button": "se connecter",
+  "button-1": "S'identifier/S'inscrire",
+
+  "content-1-1": " Web-Firewall a détecté une attaque sans protection.",
+  "content-1-2": " Mise à jour de sécurité ou Gestion des politiques sur les aspects persistants",
+  "content-1-3": " C-SIMS est un service efficace.",
+  "content-1-4": "Détection et défense d'attaques intelligentes en continu (APT) via l'analyse de journal de données volumineuses, vérification du résultat de la détection par apprentissage automatique (minimisation des faux positifs) ",
+  "content-1-5": "C-SIMS fournit désormais une analyse des menaces inconnue et une détection des anomalies.",
+
+  "content-2-1": " Prise en charge de l'analyse des journaux en temps réel via un tableau de bord",
+  "content-2-2": " Vous pouvez appliquer des règles de détection basées sur l'analyse du journal pour compenser les menaces et vous protéger contre les attaques Web. ",
+  "content-2-3": " La sécurité des applications Web doit être effectuée en temps réel.",
+  "content-2-4": " En un coup d'œil, vous pouvez afficher des informations sur chaque vulnérabilité.",
+  "content-2-5": " Le C-SIMS de Kosyas résout les problèmes de l'administrateur de la sécurité concernant la gestion et la sécurité des systèmes d'entreprise.",
+
+  "content-3-1": " Collecte / détection / analyse de journaux via le service Docker",
+  "content-3-2": " Détecter le comportement anormal du cloud interne pour la sécurité des ressources du cloud.",
+  "content-3-3": " En raison des limitations des méthodes de surveillance existantes, l'analyse des journaux nécessite beaucoup de temps et de main-d'œuvre pour identifier la cause de la défaillance.",
+  "content-3-4": " Pour gérer les attaques intelligentes à l'avance, utilisez le module d'intelligence des menaces pour collecter des journaux et analyser des informations.",
+  "content-3-5": " C-SIMS réduit les coûts de votre entreprise en fournissant des mises à jour et des services de collecte, de détection et d'analyse de journaux via le Docker.",
+
+  "content-4-1": " Processus d'utilisation",
+  "content-4-2": " Il est important de comprendre où les incidents de sécurité ont commencé et quelles en sont les conséquences, et de réagir efficacement.",
+  "content-4-3": " Analyse du journal en temps réel",
+  "content-4-4": "Journaux du système d'analyse en temps réel à partir du serveur",
+  "content-4-4-1": ", du Web, des vulnérabilités réseau et des rapports de journaux",
+  "content-4-5": " Identification de vulnérabilité",
+  "content-4-6": " Plusieurs vulnérabilités du serveur en un coup d’œil.",
+  "content-4-6-1": "Répondre aux vulnérabilités à travers plusieurs visualisations",
+  "content-4-7": " Défense en temps réel",
+  "content-4-8": " Défense contre les menaces par l'application de règles à des menaces spécifiques",
+  "content-4-9": " Création de rapport",
+  "content-4-10": "Fournit une fonction de création de rapport complète",
+  "content-4-10-1": "en définissant l'heure et la période en fonction de l'analyse du journal",
+  "content-4-11": " Service d'alarme en temps réel",
+  "content-4-12": "Alarmes en temps réel contre les menaces Alarmes périodiques",
+  "content-4-12-1": "par courrier électronique À tout moment, n'importe où",
+  "content-4-13": " Docker Compose",
+  "content-4-14": " Utilisez Docker pour créer avec une seule commande sans nécessiter de contrôle de version",
+
+  "content-5-1": " Les clients de KOSYAS ",
+  "content-5-2": " répondre aux attentes des clients",
+  "content-5-3": " Détails",
+
+  "content-6-1": " Contactez nous",
+  "content-6-2": " C-SIMS peut être installé à l'intérieur du système informatique de l'entreprise.",
+  "content-6-3": " Demander une consultation",
+  "content-6-4": " Appliquer aux systèmes en nuage",
+  "content-6-5": " Installé et utilisé sur un système cloud interne",
+  "content-6-6": " Appliqué au système sous forme de boîte",
+  "content-6-7": " Utilisé sous une forme empêchant toute exposition directe à la sécurité interne via un petit mini PC",
+  "content-6-8": " Application système de type logiciel",
+  "content-6-9": " Utilise le système interne par le biais de ressources internes",
+
+  "content-7-1": " Remarquer",
+  "content-7-2": " Politique de confidentialité",
+  "content-7-3": " Information de la direction",
+  "content-7-4": " Produit divulgation",
+  "content-7-5": " Enregistrement du produit de protection",
+  "content-7-6": " Plaintes reçues",
+
+  "content-8-1": " Korea System Assurance Co. Ltd. 4 Jeil 12, Munjeong-ro, Songpa-gu, Séoul, Corée (Moonjeong-dong, bâtiment Haejin) Directeur général: Dae-il Cho "
+}

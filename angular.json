@@ -29,7 +29,12 @@
               "src/styles.scss"
             ],
             "scripts": [
-              {
+		
+                "./node_modules/scrollreveal/dist/scrollreveal.js"
+       	        ,
+		"./node_modules/jquery/dist/jquery.min.js"
+		,
+            {
                 "input": "node_modules/document-register-element/build/document-register-element.js"
               },
               {
@@ -87,7 +92,7 @@
               },
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [ "./node_modules/scrollreveal/dist/scrollreveal.js" ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

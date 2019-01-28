@@ -1,0 +1,66 @@
+{
+  "title": "KOSYAS Cloud Service Make Your System and Web Security Easier! Faster!",
+  "button": "Sign in",
+  "button-1": "Login / Sign up",
+
+  "content-1-1": " Web-Firewall detected unprotect attack.",
+  "content-1-2": " Security update or Policy Management on continuous aspects",
+  "content-1-3": " C-SIMS is effective services.",
+  "content-1-4": "Intelligent continuous attack (APT) detection and defense through log big data analysis, verification of detection result through machine learning (minimization of false positives) ",
+  "content-1-5": "C-SIMS now provides unknown threat analysis and anomaly detection.",
+
+  "content-2-1": " Real-time log analysis support through dashboard",
+  "content-2-2": " You can apply detection rules based on log analysis to compensate for threats and defend against Web attacks. ",
+  "content-2-3": " Web application security should be done in real time.",
+  "content-2-4": " At a glance, you can view information for each vulnerability.",
+  "content-2-5": " Kosyas' C-SIMS solves the security administrator's concerns about enterprise system management and security.",
+
+  "content-3-1": " Log Collection / Detection / Analysis via Docker Service",
+  "content-3-2": " Detect abnormal behavior of in-house cloud for security of cloud resources.",
+  "content-3-3": " Due to limitations of existing monitoring methods, it takes a lot of time and manpower to perform log analysis to identify the cause of failure.",
+  "content-3-4": " To manage intelligent attacks in advance, use the threat intelligence module to collect logs and analyze information.",
+  "content-3-5": " C-SIMS saves your company costs by providing updates and log collection / detection / analysis services through the Docker.",
+
+  "content-4-1": " Usage Process",
+  "content-4-2": " It is important to understand where the security incidents have started and what the consequences are, and to respond effectively.",
+  "content-4-3": " Real-time log analysis",
+  "content-4-4": " Real-time analysis system logs from server,",
+  "content-4-4-1": "web, network vulnerability and log report",
+  "content-4-5": " Vulnerability Identification",
+  "content-4-6": " Multiple vulnerabilities in the server at a glance.",
+  "content-4-6-1": "Respond to vulnerabilities through multiple visualizations",
+  "content-4-7": " Real-time defense",
+  "content-4-8": " Threat defense through application of rules to specific threats",
+  "content-4-9": " Report creation",
+  "content-4-10": " Provides comprehensive report creation function  ",
+  "content-4-10-1": "by setting time and period according to log analysis",
+  "content-4-11": " Real-time alarm service",
+  "content-4-12": "Real-time alarms against threats Periodic alarms ",
+  "content-4-12-1": "via e-mail Anytime, anywhere",
+  "content-4-13": " Docker Compose",
+  "content-4-14": " Use Docker to build with one command without needing any version control",
+
+  "content-5-1": " Customers of KOSYAS ",
+  "content-5-2": " responding to customer expectations",
+  "content-5-3": " Details",
+
+  "content-6-1": " Contact Us",
+  "content-6-2": " C-SIMS can be installed inside the enterprise computer system.",
+  "content-6-3": " Apply for a consultation",
+  "content-6-4": " Apply to Cloud systems",
+  "content-6-5": " Installed and used on an in-house cloud system",
+  "content-6-6": " Applied to system in Box form",
+  "content-6-7": " Used in a form that prevents direct in-house security exposure through a small mini PC",
+  "content-6-8": " Software type system application",
+  "content-6-9": " Uses in-house system through in-house resources",
+
+   "content-7-1": " Notice",
+   "content-7-2": " Privacy policy",
+   "content-7-3": " Management disclosure",
+   "content-7-4": " Product disclosure",
+   "content-7-5": " Protection product registration",
+   "content-7-6": " Complaints received",
+
+    "content-8-1": " Korea System Assurance Co. Ltd. 4 Jeil 12, Munjeong-ro, Songpa-gu, Seoul, Korea (Moonjeong-dong, Haejin Building) CEO: Dae-il Cho "
+
+}

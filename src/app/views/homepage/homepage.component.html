@@ -1,0 +1,324 @@
+
+
+<div class="home-container" >
+
+  <div class="kosyas-head">
+    <div id="target0">
+    </div>
+    <div class="kosyas-top">
+      <a href="#">
+        <span class="kosyas-service-logo"></span>
+      </a>
+
+
+        <nav class="cl-effect-21">
+          <div class="category">
+
+          <a href="#target0" class="scroll">Home</a>
+          <a href="#target1" class="scroll">Why_C-SIMS</a>
+          <a href="#target2" class="scroll">Services</a>
+          <a href="#target3" class="scroll">Function</a>
+          <a href="#target4" class="scroll">Customers</a>
+          <a href="#target5" class="scroll">Contact</a>
+
+            <button class="flag-button" (click)="switchLanguage('en')"><img class="item" src="assets/imgs/united-states.png"> </button>
+            <button class="flag-button" (click)="switchLanguage('ko')"><img class="item" src="assets/imgs/south-korea.png"> </button>
+            <button class="flag-button" (click)="switchLanguage('fr')"><img class="item" src="assets/imgs/france.png"></button>
+
+          </div>
+        </nav>
+    </div>
+
+    <h3 class="title">{{'title'|translate}}<br>C-SIMS</h3>
+	<a [routerLink] = "['/anonymous/login']">
+    <button class="submit-button" (click)="goSubmit(   )">
+      <span class="submit-title">{{'button'|translate}}</span>
+      <span class="text-hr"></span>
+      <span class="submit-sub-title">{{'button-1'|translate}}</span>
+    </button>
+	</a>
+  </div>
+
+  <div id="target1"></div>
+  <div class="kosyas-content-1" (scroll)="onScroll($event)">
+
+    <div class="dark-background"></div>
+    <div class="sky-background" [ngClass]="{'close-sky-background': backgroundColor}">
+      <div class="sun"></div>
+      <div class="shadow"></div>
+    </div>
+    <span class="star star-1" [hidden]="!backgroundColor"></span>
+    <span class="star star-2" [hidden]="!backgroundColor"></span>
+    <span class="star star-3" [hidden]="!backgroundColor"></span>
+    <span class="star star-4" [hidden]="!backgroundColor"></span>
+    <span class="star star-5" [hidden]="!backgroundColor"></span>
+    <span class="star star-6" [hidden]="!backgroundColor"></span>
+    <span class="star star-7" [hidden]="!backgroundColor"></span>
+    <div class="content-text">
+      <h3>
+        {{'content-1-1'|translate}}<br>
+        {{'content-1-2'|translate}}<br>
+        {{'content-1-3'|translate}}
+      </h3>
+      <p>
+        {{'content-1-4'|translate}}<br>
+        {{'content-1-5'|translate}}
+      </p>
+    </div>
+    <div class="content-img">
+      <img src="assets/imgs/theaf.png" alt="phone4">
+    </div>
+  </div>
+
+  <div id="target2"></div>
+  <div class="kosyas-content-2">
+
+    <div class="content-img">
+      <img class="item" src="assets/imgs/content8.png" alt="phone1">
+    </div>
+    <div class="content-text">
+
+      <h3>
+        {{'content-2-1'|translate}}<br>
+      </h3>
+      <p>
+        {{'content-2-2'|translate}}<br>
+        {{'content-2-3'|translate}}<br>
+        {{'content-2-4'|translate}}<br>
+        {{'content-2-5'|translate}}
+      </p>
+    </div>
+  </div>
+  <div class="kosyas-content-3">
+    <div class="content-text">
+      <h3>
+        {{'content-3-1'|translate}}
+        <br>
+      </h3>
+      <p>
+        {{'content-3-2'|translate}}<br>
+        {{'content-3-3'|translate}}<br>
+        {{'content-3-4'|translate}} <br>
+        {{'content-3-5'|translate}}
+      </p>
+
+    </div>
+    <div class="content-img">
+      <img class="item" src="assets/imgs/content6.png" alt="phone2">
+    </div>
+  </div>
+
+  <div id="target3"></div>
+  <div class="kosyas-content-4">
+
+    <div class="content-text">
+      <h3>
+        {{'content-4-1'|translate}}<br>
+
+      </h3>
+
+      <h2>
+        {{'content-4-2'|translate}}
+      </h2>
+        <br>
+
+      <div class="content-img">
+          <img class="item" src="assets/imgs/aim.png" >
+        <br>
+        <strong>{{'content-4-3'|translate}}</strong>
+          <p>
+            {{'content-4-4'|translate}}<br>
+            {{'content-4-4-1'|translate}}
+          </p>
+
+        </div>
+
+      <div class="content-img">
+        <img class="item" src="assets/imgs/pie-chart.png" >
+        <br>
+          <strong>{{'content-4-5'|translate}}</strong>
+          <p>
+            {{'content-4-6'|translate}}<br>
+            {{'content-4-6-1'|translate}}
+          </p>
+
+      </div>
+
+      <div class="content-img">
+        <img class="item" src="assets/imgs/file.png" >
+        <br>
+          <strong>{{'content-4-7'|translate}}</strong>
+          <p>
+            {{'content-4-8'|translate}}
+          </p>
+
+      </div>
+
+
+
+      <br>
+
+      <div class="content-img">
+        <img class="item" src="assets/imgs/chart.png" >
+        <br>
+          <strong>{{'content-4-9'|translate}}</strong>
+          <p>
+            {{'content-4-10'|translate}}<br>
+            {{'content-4-10-1'|translate}}
+          </p>
+
+      </div>
+
+      <div class="content-img">
+        <img class="item" src="assets/imgs/alarm.png" >
+
+
+        <br>
+          <strong>{{'content-4-11'|translate}}</strong>
+          <p>
+            {{'content-4-12'|translate}}<br>
+            {{'content-4-12-1'|translate}}
+          </p>
+
+      </div>
+
+      <div class="content-img">
+        <img class="item" src="assets/imgs/docker.png" >
+        <br>
+          <strong>{{'content-4-13'|translate}}</strong>
+          <p>
+            {{'content-4-14'|translate}}
+          </p>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+  <div id="target4"></div>
+  <div class="kosyas-content-5">
+
+
+    <div class="content-text">
+      <h3>
+        {{'content-5-1'|translate}} <br> {{'content-5-2'|translate}}
+      </h3>
+
+    </div>
+
+    <div class="slide-container">
+      <img  src="assets/imgs/samsung.png">
+      <img  src="assets/imgs/ahnlab.png">
+      <img  src="assets/imgs/secui.png">
+      <img  src="assets/imgs/sk.png">
+    </div>
+
+    <a class="benefit" href="http://www.kosyas.com/html/intro/client.php" target="_blank">
+            <span>
+                {{'content-5-3'|translate}}
+            </span>
+      <img src="assets/imgs/home_arrow_24.png" >
+    </a>
+  </div>
+
+  <div id="target5"></div>
+  <div class="kosyas-content-6">
+
+    <div class="content-text">
+
+      <div id="target"></div>
+
+      <h3>
+        {{'content-6-1'|translate}}<br> {{'content-6-2'|translate}}
+      </h3>
+    </div>
+    <div class="content-hr"></div>
+
+    <button class="submit-button" (click)="goSubmit()">
+      <a href = "https://docs.google.com/forms/d/12nvJDGgksohDAWFOiaj4LP3p9pfleaTolV_xF6nj4-k/edit" target="_blank">
+      <span class="submit-title">{{'content-6-3'|translate}}</span>
+      </a>
+    </button>
+
+    <div class="content-img">
+
+      <ul>
+        <li>
+          <strong>{{'content-6-4'|translate}}</strong>
+          <p>
+            {{'content-6-5'|translate}}
+          </p>
+        </li>
+
+        <li>
+          <strong>{{'content-6-6'|translate}}</strong>
+          <p>
+            {{'content-6-7'|translate}}
+          </p>
+        </li>
+
+        <li>
+          <strong>{{'content-6-8'|translate}}</strong>
+          <p>
+            {{'content-6-9'|translate}}
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="kosyas-footer">
+    <div class="content-text">
+      <div class="content-01">
+        <a href="#">{{'content-7-1'|translate}}</a>
+        <span class="text-hr"></span>
+        <a href="#">{{'content-7-2'|translate}}</a>
+        <span class="text-hr"></span>
+        <a href="#">{{'content-7-3'|translate}}</a>
+        <span class="text-hr"></span>
+        <a href="#">{{'content-7-4'|translate}}</a>
+        <span class="text-hr"></span>
+        <a href="#">{{'content-7-5'|translate}}</a>
+        <span class="text-hr"></span>
+        <a href="#">{{'content-7-6'|translate}}</a>
+      </div>
+      <div class="content-02">
+        <span class="tel">{{'content-8-1'|translate}}   </span>
+        <br>
+          <small>Tel : 02-2097-9797 Fax : 02-2097-9777  |  Copyright - kosyas of Korea Corp. All rights reserved. </small>
+      </div>
+      <ul class="list-channel">
+
+        <li>
+          <a href="http://www.kosyas.com" target="_blank">
+            <span class="home-logo"></span>
+          </a>
+        </li>
+
+        <li>
+          <a href="https://www.facebook.com/syas.ko.9" target="_blank">
+            <span class="facebook-logo"></span>
+          </a>
+        </li>
+
+        <li>
+        <a href="https://www.youtube.com/channel/UCWTqH_v3iMOLke3Y3_DNz7A/featured?view_as=subscriber" target="_blank">
+          <span class="youtube-logo"></span>
+        </a>
+      </li>
+
+
+
+      </ul>
+    </div>
+  </footer>
+  <div class="goup">
+    <a href="#target0" class="scroll">
+     <div> <img src="../assets/imgs/upload.png" ></div>
+    </a>
+  </div>
+
+</div>

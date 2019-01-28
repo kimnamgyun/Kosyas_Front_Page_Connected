@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule} from '@angular/core';
-
+import {HomepageModule} from "./homepage/homepage.module";
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
@@ -14,15 +14,19 @@ import {LocaleService} from '../services/locale.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ErrorComponent} from './error/error.component';
 import {PreviewComponent} from './report/print/preview/preview.component';
+import { FormsModule }   from '@angular/forms';
+import {HomepageComponent} from "./homepage/homepage.component";
 
 @NgModule({
   declarations: [
+	HomepageComponent,
     AppComponent,
     AnonymousComponent,
     HomeComponent,
-    PreviewComponent
-  ],
-  imports: [
+    PreviewComponent  ],
+  imports: [ 
+	FormsModule,
+	HomepageModule,
     ClickOutsideModule,
     HttpClientModule,
     BrowserModule,
