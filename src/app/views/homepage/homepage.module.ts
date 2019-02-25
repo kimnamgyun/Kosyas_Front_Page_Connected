@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {NgsRevealModule} from 'ng-scrollreveal';
-
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {HomeRoutingModule} from './homepage-routing.module';
 
 
 export function createTranslateLoader(http: HttpClient) {
-  // ´Ù±¹¾î ÆÄÀÏÀÇ È®ÀåÀÚ¿Í °æ·Î¸¦ ÁöÁ¤
+  // ï¿½Ù±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½
   return new TranslateHttpLoader( http, '../../../assets/i18n/', '.json');
 }
 
@@ -20,7 +18,7 @@ export function createTranslateLoader(http: HttpClient) {
       HomeRoutingModule,
     CommonModule,
     HttpClientModule,
-    
+      ScrollToModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -31,6 +29,7 @@ export function createTranslateLoader(http: HttpClient) {
 	NgsRevealModule.forRoot(),   
 ],
   declarations: [],
-  exports: [TranslateModule] //¹ø¿ª ¸ðµâÀ» ¹ÛÀ¸·Î °øÀ¯ÇØ¾ß °¡´ÉÇÔ.
+  exports: [TranslateModule,
+      ScrollToModule] //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 })
 export class HomepageModule { }

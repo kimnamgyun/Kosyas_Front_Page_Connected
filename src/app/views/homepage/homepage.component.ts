@@ -40,36 +40,7 @@ export class HomepageComponent implements OnInit {
       centerMode: true,
       centerPadding: '0px'
     });
-
-    function fnMove(seq) {
-      const offset = $('#div' + seq).offset();
-      $('html, body').animate({scrollTop : offset.top}, 400);
-    }
-
-
-//    $('.scroll').click(function (event) {
-//      event.preventDefault();
-//      $('html').animate({scrollTop: $(this.hash).offset().top}, 500);
-//    }); {
-
-
-//    }
-
-
-
-
-    $(document).ready(function() {
-      setTimeout(function() {
-        $('html, body').scrollTop(0);
-      }, 100);
-    });
-
-
-
   }
-
-
-
 
   @HostListener('window:scroll', ['$event']) onScroll($event) {
     // console.log('$event.srcElement.scrollTop: ',$event.srcElement.scrollingElement.scrollTop);

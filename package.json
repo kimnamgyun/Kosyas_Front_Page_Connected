@@ -29,6 +29,7 @@
     "@angular/router": "^6.0.3",
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
+    "@nicky-lenaers/ngx-scroll-to": "^2.0.0",
     "@types/scrollreveal": "0.0.4",
     "@types/slick-carousel": "^1.6.32",
     "body-parser": "^1.18.3",

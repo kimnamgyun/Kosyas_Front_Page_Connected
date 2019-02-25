@@ -3,8 +3,8 @@
 <div class="home-container" >
 
   <div class="kosyas-head">
-    <div id="target0">
-    </div>
+    <a id="target0">
+    </a>
     <div class="kosyas-top">
       <a href="#">
         <span class="kosyas-service-logo"></span>
@@ -14,12 +14,12 @@
         <nav class="cl-effect-21">
           <div class="category">
 
-          <a href="#target0" class="scroll">Home</a>
-          <a href="#target1" class="scroll">Why_C-SIMS</a>
-          <a href="#target2" class="scroll">Services</a>
-          <a href="#target3" class="scroll">Function</a>
-          <a href="#target4" class="scroll">Customers</a>
-          <a href="#target5" class="scroll">Contact</a>
+          <a [ngx-scroll-to]="'#target0'" class="scroll">Home</a>
+          <a [ngx-scroll-to]="'#target1'" class="scroll">Why_C-SIMS</a>
+          <a [ngx-scroll-to]="'#target2'" class="scroll">Services</a>
+          <a [ngx-scroll-to]="'#target3'" class="scroll">Supports</a>
+          <a [ngx-scroll-to]="'#target4'" class="scroll">Customers</a>
+          <a [ngx-scroll-to]="'#target5'" class="scroll">Contact</a>
 
             <button class="flag-button" (click)="switchLanguage('en')"><img class="item" src="assets/imgs/united-states.png"> </button>
             <button class="flag-button" (click)="switchLanguage('ko')"><img class="item" src="assets/imgs/south-korea.png"> </button>
@@ -31,7 +31,7 @@
 
     <h3 class="title">{{'title'|translate}}<br>C-SIMS</h3>
 	<a [routerLink] = "['/anonymous/login']">
-    <button class="submit-button" (click)="goSubmit(   )">
+    <button class="submit-button">
       <span class="submit-title">{{'button'|translate}}</span>
       <span class="text-hr"></span>
       <span class="submit-sub-title">{{'button-1'|translate}}</span>
@@ -237,7 +237,7 @@
     </div>
     <div class="content-hr"></div>
 
-    <button class="submit-button" (click)="goSubmit()">
+    <button class="submit-button">
       <a href = "https://docs.google.com/forms/d/12nvJDGgksohDAWFOiaj4LP3p9pfleaTolV_xF6nj4-k/edit" target="_blank">
       <span class="submit-title">{{'content-6-3'|translate}}</span>
       </a>
@@ -316,7 +316,7 @@
     </div>
   </footer>
   <div class="goup">
-    <a href="#target0" class="scroll">
+    <a [ngx-scroll-to]="'#target0'" class="scroll">
      <div> <img src="../assets/imgs/upload.png" ></div>
     </a>
   </div>
