@@ -47,7 +47,7 @@
     "jwt-blacklist": "0.0.2",
     "ng-click-outside": "^4.0.0",
     "ng-scrollreveal": "^2.2.0",
-    "nodemailer": "^4.6.8",
+    "nodemailer": "^6.4.16",
     "npm": "^6.4.1",
     "parser": "^0.1.4",
     "pg-promise": "^8.4.4",
