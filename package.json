@@ -43,7 +43,7 @@
     "hammerjs": "^2.0.8",
     "jquery": "^3.3.1",
     "json-to-csv": "^1.0.0",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "jwt-blacklist": "0.0.2",
     "ng-click-outside": "^4.0.0",
     "ng-scrollreveal": "^2.2.0",
